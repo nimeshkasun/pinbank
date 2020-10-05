@@ -119,7 +119,9 @@ try{
 		}
 
 
-
+		$a = $_POST['signin_button'];
+		echo $a;
+		
 		$email=mysqli_real_escape_string($conn,$_POST['signin_email']);
 		$password=mysqli_real_escape_string($conn,$_POST['signin_password']);
 		$result = $conn->query("SELECT fName, lName, email, password, userStatus, userType FROM tblUserDetails WHERE email='$email'");
