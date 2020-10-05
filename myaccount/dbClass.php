@@ -1,9 +1,9 @@
 <?php
 session_start();
-if(isset($_GET['execute'])){
+/*if(isset($_GET['execute'])){
 	$_SESSION['loggedIn'] = "loggedIn";
 }
-
+*/
 if($_SESSION['loggedIn']!="loggedIn"){
 	header('Location: ../');
 } 
@@ -1402,9 +1402,9 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 
 
 
-if(isset($_GET['execute'])){
+/*if(isset($_GET['execute'])){
 	$_SESSION['loggedIn'] = "";
-}
+}*/
 
 
 
