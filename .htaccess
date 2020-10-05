@@ -1,1 +1,8 @@
+
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^www\.pinbank\.live$
+RewriteRule ^(.*)$ "https\:\/\/www\.pinbank\.live\/$1" [R=301,L]
+
 ErrorDocument 404 /404.php
