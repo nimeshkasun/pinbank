@@ -183,7 +183,7 @@ if ($result->num_rows > 0) {
 					if(mysqli_query($conn,$sql)){
 						
 					}
-					header('location: ../myaccount/');
+					
 
 					session_destroy();
 					session_start();
