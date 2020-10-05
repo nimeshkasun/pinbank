@@ -71,7 +71,7 @@ try{
 		$userStatus="Active";
 		$userType="custAdv";
 		if($password==$conpassword){
-			$result= mysqli_query($conn, "SELECT MAX(accountNumber) AS maximum FROM tblAccount");
+			$result= mysqli_query($conn, "SELECT MAX(accountNumber) AS maximum FROM tblaccount");
 			$row = mysqli_fetch_assoc($result); 
 			$maxAccNum = $row['maximum'];
 			$generatedAccNumber = $maxAccNum + 1;
@@ -80,7 +80,7 @@ try{
 
 			$hashed = password_hash($password, PASSWORD_BCRYPT);
 			$sql = "INSERT INTO tbluserdetails(email, fName, lName, password, phoneNumber, stAddress, addLine1, addLine2, city, stateProvince, postalCode, country, userStatus, userType) VALUES ('$email', '$fName', '$lName', '$hashed', '$phoneNumber', '$stAddress', '$addLine1', '$addLine2', '$city', '$stateProvince', '$postalCode', '$country', '$userStatus', '$userType')";
-			$sql2 = "INSERT INTO tblAccount(accountNumber, accountBalance, aCurrency, aUserEmail) VALUES ('$generatedAccNumber', '0', '$aCurrency', '$email')";
+			$sql2 = "INSERT INTO tblaccount(accountNumber, accountBalance, aCurrency, aUserEmail) VALUES ('$generatedAccNumber', '0', '$aCurrency', '$email')";
 			if(mysqli_query($conn,$sql)){
 				if(!mysqli_query($conn,$sql2)){
 					$sql3 = "DELETE FROM tbluserdetails WHERE email='$email";
@@ -120,7 +120,7 @@ try{
 		$email=mysqli_real_escape_string($conn,$_POST['signin_email']);
 		$password=mysqli_real_escape_string($conn,$_POST['signin_password']);
 
-		$result = $conn->query("SELECT fName, lName, email, password, userStatus, userType FROM tblUserDetails WHERE email='$email'");
+		$result = $conn->query("SELECT fName, lName, email, password, userStatus, userType FROM tbluserdetails WHERE email='$email'");
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
 				$firstnamesaved = $row['fName']; 
@@ -145,7 +145,7 @@ try{
 
 ///////// IP History Check
 
-				$result = $conn->query("SELECT trRegion, trCountry, trLocation, trTime FROM tblIpTracking WHERE trAccountNumber='$accountNumber'");
+				$result = $conn->query("SELECT trRegion, trCountry, trLocation, trTime FROM tbliptracking WHERE trAccountNumber='$accountNumber'");
 /*				echo $accountNumber;
 */
 if ($result->num_rows > 0) {
@@ -181,7 +181,7 @@ if ($result->num_rows > 0) {
 				function loginCheck($ip, $region, $country, $location,$accountNumber, $conn, $firstnamesaved, $lastnamesaved, $emailsaved, $userStatussaved, $userTypesaved, $password){
 					echo $ip, $region, $country, $location, $accountNumber, $userTypesaved;
 					$nowDate = date("Y-m-d H:i:sa");
-					$sql = "INSERT INTO tblIpTracking(trIp, trRegion, trCountry, trLocation, trTime, trAccountNumber) VALUES ('$ip', '$region', '$country', '$location','$nowDate', '$accountNumber')";
+					$sql = "INSERT INTO tbliptracking(trIp, trRegion, trCountry, trLocation, trTime, trAccountNumber) VALUES ('$ip', '$region', '$country', '$location','$nowDate', '$accountNumber')";
 					if(mysqli_query($conn,$sql)){
 						
 					}
@@ -327,7 +327,7 @@ if ($result->num_rows > 0) {
 	if(isset($_POST['resetpass_button']))
 	{
 		$email=mysqli_real_escape_string($conn,$_POST['resetpass_email']);
-		$result = $conn->query("SELECT password FROM tblUserDetails WHERE email='$email'");
+		$result = $conn->query("SELECT password FROM tbluserdetails WHERE email='$email'");
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
 				$passwordsaved = $row['password']; 
@@ -445,7 +445,7 @@ try{
 		$country=mysqli_real_escape_string($conn,"abc");
 		$userStatus="Active";
 		if($password==$conpassword){
-			$result= mysqli_query($conn, "SELECT MAX(accountNumber) AS maximum FROM tblAccount");
+			$result= mysqli_query($conn, "SELECT MAX(accountNumber) AS maximum FROM tblaccount");
 			$row = mysqli_fetch_assoc($result); 
 			$maxAccNum = $row['maximum'];
 			$generatedAccNumber = $maxAccNum + 1;
@@ -453,7 +453,7 @@ try{
 
 			$hashed = password_hash($password, PASSWORD_BCRYPT);
 			$insert = "INSERT INTO tbluserdetails(email, fName, lName, password, phoneNumber, stAddress, addLine1, addLine2, city, stateProvince, postalCode, country, userStatus) VALUES ('$email', '$fName', '$lName', '$hashed', '$phoneNumber', '$stAddress', '$addLine1', '$addLine2', '$city', '$stateProvince', '$postalCode', '$country', '$userStatus')";
-			$insert2 = "INSERT INTO tblAccount(accountNumber, accountBalance, aCurrency, aUserEmail) VALUES ('$generatedAccNumber', '0', '$aCurrency', '$email')";
+			$insert2 = "INSERT INTO tblaccount(accountNumber, accountBalance, aCurrency, aUserEmail) VALUES ('$generatedAccNumber', '0', '$aCurrency', '$email')";
 			if(mysqli_query($conn,$insert)){
 				if(isset($_GET['execute'])){
 					echo $sucess."(3) tblUserDetails - Insert"."<br><br>";
@@ -462,7 +462,7 @@ try{
 					if(isset($_GET['execute'])){
 						echo $bug."(4) tblAccount - Insert: ".mysqli_error($conn)."<br><br>";
 					}
-					$insert3 = "DELETE FROM tblAccount WHERE email='$email";
+					$insert3 = "DELETE FROM tblaccount WHERE email='$email";
 					mysqli_query($conn,$insert3);
 					if(isset($_GET['execute'])){
 						echo $sucess."(5) tblAccount - Delete"."<br><br>";
@@ -490,7 +490,7 @@ try{
 			}
 		}
 
-		$delete = "DELETE FROM tblAccount WHERE aUserEmail='$email'";
+		$delete = "DELETE FROM tblaccount WHERE aUserEmail='$email'";
 		if(mysqli_query($conn,$delete)){
 			if(isset($_GET['execute'])){
 				echo $sucess."(9) tblAccount - Delete"."<br><br>";
@@ -518,7 +518,7 @@ try{
 	{
 		//$email=mysqli_real_escape_string($conn,"abc@123.com");
 		//$password=mysqli_real_escape_string($conn,"123");
-		$result = $conn->query("SELECT fName, lName, email, password, userStatus FROM tblUserDetails WHERE email='$email'");
+		$result = $conn->query("SELECT fName, lName, email, password, userStatus FROM tbluserdetails WHERE email='$email'");
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
 				$firstnamesaved = $row['fName']; 
@@ -528,7 +528,7 @@ try{
 				$userStatussaved = $row['userStatus'];  
 			}
 		}
-		$result = $conn->query("SELECT accountNumber FROM tblAccount WHERE aUserEmail='$email'");
+		$result = $conn->query("SELECT accountNumber FROM tblaccount WHERE aUserEmail='$email'");
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
 				$accountNumber = $row['accountNumber'];
@@ -567,7 +567,7 @@ try{
 	if(isset($_GET['execute']))
 	{
 		//$email=mysqli_real_escape_string($conn,$_POST['resetpass_email']);
-		$result = $conn->query("SELECT password FROM tblUserDetails WHERE email='$email'");
+		$result = $conn->query("SELECT password FROM tbluserdetails WHERE email='$email'");
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
 				$passwordsaved = $row['password']; 
