@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2020 at 07:57 PM
+-- Generation Time: Oct 05, 2020 at 07:53 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `pindb`
 --
-CREATE DATABASE IF NOT EXISTS `pindb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `pindb`;
 
 -- --------------------------------------------------------
 
@@ -42,8 +40,8 @@ CREATE TABLE `tblaccount` (
 --
 
 INSERT INTO `tblaccount` (`aId`, `accountNumber`, `accountBalance`, `aCurrency`, `aUserEmail`) VALUES
-(1, 199600000000, 316824, 'LKR', 'nimesh.ekanayaka7@gmail.com'),
-(6, 199600000001, 44672.8, 'LKR', 'lahiruthivankara@gmail.com'),
+(1, 199600000000, 316763, 'LKR', 'nimesh.ekanayaka7@gmail.com'),
+(6, 199600000001, 44713.6, 'LKR', 'lahiruthivankara@gmail.com'),
 (32, 199600000002, 0, 'LKR', 'nimesh@edvicon.org'),
 (33, 199600000003, 0, 'LKR', 'bhanuka@gmail.com');
 
@@ -156,7 +154,17 @@ INSERT INTO `tbliptracking` (`trID`, `trIp`, `trRegion`, `trCountry`, `trLocatio
 (97, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-09-17 17:58:36', 199600000000),
 (98, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-09-17 18:12:34', 199600000001),
 (99, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-09-17 18:24:58', 199600000001),
-(100, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-09-17 19:41:23', 199600000000);
+(100, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-09-17 19:41:23', 199600000000),
+(101, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-09-18 15:33:26', 199600000000),
+(102, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-09-18 15:57:35', 199600000002),
+(103, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-09-18 16:42:39', 199600000000),
+(104, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-09-18 16:43:57', 199600000002),
+(105, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-09-18 20:06:30', 199600000000),
+(106, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-09-18 20:21:47', 199600000000),
+(107, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-09-18 20:23:57', 199600000002),
+(108, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-09-18 20:26:51', 199600000000),
+(109, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-09-18 20:28:13', 199600000001),
+(110, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-05 07:51:50', 199600000000);
 
 -- --------------------------------------------------------
 
@@ -185,7 +193,9 @@ INSERT INTO `tblmessage` (`mId`, `message`, `email`, `lName`) VALUES
 (81, 'hi', 'lahiruthivankara@gmail.com', 'Admin'),
 (82, 'check1', 'lahiruthivankara@gmail.com', 'Chamod'),
 (83, 'hi', 'nimesh.ekanayaka7@gmail.com', 'Ekanayake'),
-(84, 'h', 'nimesh.ekanayaka7@gmail.com', 'Admin');
+(84, 'h', 'nimesh.ekanayaka7@gmail.com', 'Admin'),
+(85, 'hi', 'nimesh.ekanayaka7@gmail.com', 'Ekanayake'),
+(86, 'test', 'nimesh.ekanayaka7@gmail.com', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -427,7 +437,11 @@ INSERT INTO `tbltransactions` (`tId`, `tType`, `tDate`, `tDescription`, `tAccoun
 (588, 'Send', '2020-09-16 18:11:53', 'Transfered LKR  12000.00 to account lahiruthivankara@gmail.com<br> from account nimesh.ekanayaka7@gmail.com. <br>: limit check 5', 'PRA', 12000, 24672.8, 199600000000, 1),
 (589, 'Deposit', '2020-09-16 18:17:22', 'Deposit  LKR250,000.00 <br> to account nimesh.ekanayaka7@gmail.com <br>: Lottery ', 'PRA', 250000, 336824, 199600000000, 1),
 (590, 'Receive', '2020-09-16 18:57:24', 'Received LKR  20000.00 from account nimesh.ekanayaka7@gmail.com<br> to account lahiruthivankara@gmail.com. <br>: limit check 5', 'PRA', 20000, 44672.8, 199600000001, 0),
-(591, 'Send', '2020-09-16 18:57:24', 'Transfered LKR  20000.00 to account lahiruthivankara@gmail.com<br> from account nimesh.ekanayaka7@gmail.com. <br>: limit check 5', 'PRA', 20000, 44672.8, 199600000000, 1);
+(591, 'Send', '2020-09-16 18:57:24', 'Transfered LKR  20000.00 to account lahiruthivankara@gmail.com<br> from account nimesh.ekanayaka7@gmail.com. <br>: limit check 5', 'PRA', 20000, 44672.8, 199600000000, 1),
+(598, 'Receive', '2020-09-18 17:00:30', 'Received LKR  10.00 from account nimesh.ekanayaka7@gmail.com<br> to account lahiruthivankara@gmail.com. <br>: Test 3', 'PRA', 10, 44692.8, 199600000001, 0),
+(599, 'Send', '2020-09-18 17:00:30', 'Transfered LKR  10.00 to account lahiruthivankara@gmail.com<br> from account nimesh.ekanayaka7@gmail.com. <br>: Test 3', 'PRA', 10, 44692.8, 199600000000, 1),
+(606, 'Receive', '2020-09-18 20:30:19', 'Received LKR  10.80 from account nimesh.ekanayaka7@gmail.com<br> to account lahiruthivankara@gmail.com. <br>: Test 3', 'PRA', 10.8, 44713.6, 199600000001, 0),
+(607, 'Send', '2020-09-18 20:30:19', 'Transfered LKR  10.80 to account lahiruthivankara@gmail.com<br> from account nimesh.ekanayaka7@gmail.com. <br>: Test 3', 'PRA', 10.8, 44713.6, 199600000000, 1);
 
 -- --------------------------------------------------------
 
@@ -488,8 +502,8 @@ CREATE TABLE `tblvirtualcard` (
 INSERT INTO `tblvirtualcard` (`vId`, `vCardNumber`, `vExpireDate`, `vCSV`, `vCardName`, `vCardBalance`, `vCardOrder`, `vAccountNumber`) VALUES
 (98, 1996104521201288, '2025-04-27', 490, 'Skrill', 110, 'VC3', 199600000000),
 (99, 1996285133961924, '2025-05-15', 300, 'Neteller', 510, 'VC1', 199600000001),
-(79, 1996481243502433, '2025-04-18', 715, 'PayPal - Don\'t Del', 2113, 'VC3', 199600000000),
-(49, 1996501047080921, '2024-12-15', 959, 'Neteller - Don\'t Del', 310.5, 'VC3', 199600000000);
+(79, 1996481243502433, '2025-04-18', 715, 'PayPal - Don\'t Del', 2093, 'VC3', 199600000000),
+(49, 1996501047080921, '2024-12-15', 959, 'Neteller - Don\'t Del', 350.5, 'VC3', 199600000000);
 
 --
 -- Indexes for dumped tables
@@ -546,37 +560,37 @@ ALTER TABLE `tblvirtualcard`
 -- AUTO_INCREMENT for table `tblaccount`
 --
 ALTER TABLE `tblaccount`
-  MODIFY `aId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `aId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `tbliptracking`
 --
 ALTER TABLE `tbliptracking`
-  MODIFY `trID` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `trID` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT for table `tblmessage`
 --
 ALTER TABLE `tblmessage`
-  MODIFY `mId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `mId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `tbltransactions`
 --
 ALTER TABLE `tbltransactions`
-  MODIFY `tId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=592;
+  MODIFY `tId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=608;
 
 --
 -- AUTO_INCREMENT for table `tbluserdetails`
 --
 ALTER TABLE `tbluserdetails`
-  MODIFY `uId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `uId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `tblvirtualcard`
 --
 ALTER TABLE `tblvirtualcard`
-  MODIFY `vId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `vId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- Constraints for dumped tables
