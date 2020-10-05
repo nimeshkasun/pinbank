@@ -15,7 +15,7 @@
 	}
 	else if(mysqli_connect($servername, $username_online, $password_online, $database_online))
 	{
-		$conn = mysqli_connect($servername, $username, $password, $database);
+		$conn = mysqli_connect($servername, $username_online, $password_online, $database_online);
 		if(isset($_GET['execute'])){
 			echo $success."(2) Connect to DB"."<br><br>";
 		}
