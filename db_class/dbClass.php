@@ -183,6 +183,7 @@ if ($result->num_rows > 0) {
 					if(mysqli_query($conn,$sql)){
 						
 					}
+					header('location: ../myaccount/');
 
 					session_destroy();
 					session_start();
@@ -267,7 +268,7 @@ if ($result->num_rows > 0) {
 					$_SESSION['chatEmail'] = "";
 					$_SESSION['callMe'] = "";
 					$_SESSION['emailMe'] = "";
-					header('location: ../myaccount/');
+
 						//My Account Part - End
 					if($userTypesaved == "custAdv" || $userTypesaved == "custMed" || $userTypesaved == "custEas"){
 						$_SESSION['chatEmail'] = $emailsaved;
