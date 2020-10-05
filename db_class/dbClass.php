@@ -460,11 +460,11 @@ try{
 					if(isset($_GET['execute'])){
 						echo $bug."(4) tblAccount - Insert: ".mysqli_error($conn)."<br><br>";
 					}
-					/*$insert3 = "DELETE FROM tblAccount WHERE email='$email";
+					$insert3 = "DELETE FROM tblAccount WHERE email='$email";
 					mysqli_query($conn,$insert3);
 					if(isset($_GET['execute'])){
 						echo $sucess."(5) tblAccount - Delete"."<br><br>";
-					}*/
+					}
 					//die('Error: ' .mysqli_error($conn));
 					//header('location: ../signup.php');
 				}
