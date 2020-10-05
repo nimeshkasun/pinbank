@@ -21,7 +21,7 @@ if(isset($_GET['execute'])){
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// (1) Connect to DB
-$servername = "localhost";
+/*$servername = "localhost";
 $username = "root";
 $password = "";
 $database = "pinDB";
@@ -37,7 +37,9 @@ else
 	if(isset($_GET['execute'])){
 		echo $bug."(2) Connect to DB: " . mysqli_connect_errno()."<br><br>";
 	}
-}
+}*/
+
+require_once './dbConn.php';
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// (2) tblUserDetails
 
