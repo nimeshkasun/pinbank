@@ -136,10 +136,8 @@ try{
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
 				$accountNumber = $row['accountNumber'];
-				echo $accountNumber;
 			}
 		}
-		echo $accountNumber;
 		if(password_verify($password, $passwordsaved)){
 			if($userStatussaved=="Active"){
 
