@@ -1402,7 +1402,9 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 
 
 
-
+if(isset($_GET['execute'])){
+	$_SESSION['loggedIn'] = "";
+}
 
 
 
@@ -1419,5 +1421,6 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 																															}
 																														}
 																														?>
+
 
 
