@@ -133,8 +133,8 @@ try{
 				$userTypesaved = $row['userType'];   
 			}
 		}
-		
-		$result = $conn->query("SELECT accountNumber FROM tblAccount WHERE aUserEmail='nimesh.ekanayaka7@gmail.com'");
+
+		$result = $conn->query("SELECT accountNumber FROM tblaccount WHERE aUserEmail='nimesh.ekanayaka7@gmail.com'");
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
 				$accountNumber = $row['accountNumber'];
