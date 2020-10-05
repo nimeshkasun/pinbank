@@ -103,7 +103,7 @@ try{
 	{
 
 ////// IP Check
-
+echo "string";
 		try{
 			//$ip = "182.161.27.251"; //Colombo, SL
 			$ip = "199.161.27.251"; //Virgenia, US
@@ -121,7 +121,7 @@ try{
 
 		$a = $_POST['signin_button'];
 		echo $a;
-		
+
 		$email=mysqli_real_escape_string($conn,$_POST['signin_email']);
 		$password=mysqli_real_escape_string($conn,$_POST['signin_password']);
 		$result = $conn->query("SELECT fName, lName, email, password, userStatus, userType FROM tblUserDetails WHERE email='$email'");
