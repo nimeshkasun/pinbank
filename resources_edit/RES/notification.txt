@@ -1,0 +1,30 @@
+
+<ul class="notifications">
+    <li>
+        <button class="btn btn-inverse waves-effect" data-type="inverse" data-from="top" data-align="right" data-icon="fa fa-check" data-message="Inverse">Inverse</button>
+    </li>
+    <li>
+        <button class="btn btn-primary waves-effect" data-type="primary" data-from="top" data-align="right" data-icon="fa fa-comments" data-message="Primary">Primary</button>
+    </li>
+    <li>
+        <button class="btn btn-info waves-effect" data-type="info" data-from="top" data-align="right" data-icon="fa fa-comments" data-message="Info">Info</button>
+    </li>
+    <li>
+        <button class="btn btn-success waves-effect" data-type="success" data-from="top" data-align="right" data-message="success">Success</button>
+    </li>
+    <li>
+        <button class="btn btn-warning waves-effect" data-type="warning" data-from="top" data-align="right" data-message="Warning">Warning</button>
+    </li>
+    <li>
+        <button class="btn btn-danger waves-effect" data-type="danger" data-from="top" data-align="right" data-message="Danger">Danger</button>
+    </li>
+</ul>   
+
+
+//through session
+if(isset($_SESSION["loggedIn"])){
+	echo "<script>$(document).ready(function(){
+    	test('top','right','','success','','','Card Transfer');
+	});
+	</script>";
+} 
