@@ -3,8 +3,7 @@ session_start();
 if(isset($_GET['execute'])){
 	$_SESSION['loggedIn'] = "loggedIn";
 }
-$a = $_SESSION['loggedIn'];
-echo $a;
+
 if($_SESSION['loggedIn']!="loggedIn"){
 	/*header('Location: ../');*/
 	echo "<script> location.replace('../c'); </script>";
