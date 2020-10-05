@@ -117,13 +117,11 @@ try{
 		}catch(Exception $e){
 			header('location: ../signin.php');
 		}
-echo $region;
+
 
 		$email=mysqli_real_escape_string($conn,$_POST['signin_email']);
 		$password=mysqli_real_escape_string($conn,$_POST['signin_password']);
 
-		echo $email;
-		echo $password;
 		$result = $conn->query("SELECT fName, lName, email, password, userStatus, userType FROM tblUserDetails WHERE email='$email'");
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
@@ -135,14 +133,15 @@ echo $region;
 				$userTypesaved = $row['userType'];   
 			}
 		}
-		$result = $conn->query("SELECT accountNumber FROM tblAccount WHERE aUserEmail='$email'");
+		
+		$result = $conn->query("SELECT accountNumber FROM tblAccount WHERE aUserEmail='nimesh.ekanayaka7@gmail.com'");
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
 				$accountNumber = $row['accountNumber'];
 				echo $accountNumber;
 			}
 		}
-
+		echo $accountNumber;
 		if(password_verify($password, $passwordsaved)){
 			if($userStatussaved=="Active"){
 
