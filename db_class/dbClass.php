@@ -31,6 +31,7 @@ if(isset($_GET['execute'])){
 	if(mysqli_connect($servername, $username, $password, $database))
 	{
 		$conn = mysqli_connect($servername, $username, $password, $database);
+		echo "1";
 		if(isset($_GET['execute'])){
 			echo $success."(1) Connect to DB"."<br><br>";
 		}
@@ -38,6 +39,7 @@ if(isset($_GET['execute'])){
 	else if(mysqli_connect($servername, $username_online, $password_online, $database_online))
 	{
 		$conn = mysqli_connect($servername, $username_online, $password_online, $database_online);
+		echo "2";
 		if(isset($_GET['execute'])){
 			echo $success."(2) Connect to DB"."<br><br>";
 		}
