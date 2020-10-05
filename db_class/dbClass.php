@@ -177,7 +177,7 @@ if ($result->num_rows > 0) {
 				}
 
 				function loginCheck($ip, $region, $country, $location,$accountNumber, $conn, $firstnamesaved, $lastnamesaved, $emailsaved, $userStatussaved, $userTypesaved, $password){
-					echo $ip, $region, $country, $location, $accountNumber, $userTypesaved;
+					/*echo $ip, $region, $country, $location, $accountNumber, $userTypesaved;*/
 					$nowDate = date("Y-m-d H:i:sa");
 					$sql = "INSERT INTO tbliptracking(trIp, trRegion, trCountry, trLocation, trTime, trAccountNumber) VALUES ('$ip', '$region', '$country', '$location','$nowDate', '$accountNumber')";
 					if(mysqli_query($conn,$sql)){
