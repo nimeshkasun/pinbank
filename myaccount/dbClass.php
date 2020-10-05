@@ -3,10 +3,11 @@ session_start();
 if(isset($_GET['execute'])){
 	$_SESSION['loggedIn'] = "loggedIn";
 }
-
+$a = $_SESSION['loggedIn'];
+echo $a;
 if($_SESSION['loggedIn']!="loggedIn"){
 	/*header('Location: ../');*/
-	echo "<script> location.replace('../c'); </script>";
+	//echo "<script> location.replace('../c'); </script>";
 } 
 
 echo "<link rel='stylesheet' href='../db_class/check.css'/>";
