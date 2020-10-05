@@ -185,7 +185,7 @@ if ($result->num_rows > 0) {
 					}
 
 
-					/*session_destroy();*/
+					session_destroy();
 					session_start();
 					$_SESSION["firstnamesaved"] = $firstnamesaved;
 					$_SESSION["lastnamesaved"] = $lastnamesaved;
@@ -196,7 +196,7 @@ if ($result->num_rows > 0) {
 					$_SESSION["accountCurrency"] = "LKR";
 					$_SESSION["lockCheck"] = $password;
 
-					$_SESSION["loggedIn"] = "loggedIn";
+					$_SESSION['loggedIn'] = "loggedIn";
 
 						//For My Account Part - Start
 					$_SESSION['toAccUpdateSuccess'] = "";
