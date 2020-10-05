@@ -275,7 +275,8 @@ if ($result->num_rows > 0) {
 						/*header('location: ../myaccount/');*/
 						echo "<script> location.replace('../myaccount/'); </script>";
 					}elseif($userTypesaved == "staAdmin" || $userTypesaved == "staLocal" || $userTypesaved == "staSupp"){
-						header('location: ../admin/');
+						/*header('location: ../admin/');*/
+						echo "<script> location.replace('../admin/'); </script>";
 					}
 					
 				}

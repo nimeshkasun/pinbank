@@ -5,7 +5,8 @@ if(isset($_GET['execute'])){
 }
 
 if($_SESSION['loggedIn']!="loggedIn"){
-	header('Location: ../');
+	/*header('Location: ../');*/
+	echo "<script> location.replace('../'); </script>";
 } 
 
 echo "<link rel='stylesheet' href='../db_class/check.css'/>";
