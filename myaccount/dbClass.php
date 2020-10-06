@@ -972,7 +972,7 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 	//session_start();
 	//$email = $_SESSION['emailsaved'];
 																																$email = "nimesh.ekanayaka7@gmail.com";
-																																$result = $conn->query("SELECT accountBalance, aCurrency FROM tblAccount WHERE aUserEmail='$email'");
+																																$result = $conn->query("SELECT accountBalance, aCurrency FROM tblaccount WHERE aUserEmail='$email'");
 																																if ($result->num_rows > 0) {
 																																	while($row = $result->fetch_assoc()) {
 																																		$accountBalance = $row['accountBalance'];
