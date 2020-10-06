@@ -3,7 +3,7 @@
 //session_start();
 require_once '../db_class/dbConn.php';
 $email = $_SESSION["emailsaved"];
-	$result = $conn->query("SELECT accountNumber, accountBalance, aCurrency FROM tblAccount WHERE aUserEmail='$email'");
+	$result = $conn->query("SELECT accountNumber, accountBalance, aCurrency FROM tblaccount WHERE aUserEmail='$email'");
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 			$accountBalance = $row['accountBalance'];

@@ -1,6 +1,6 @@
 <?php
 	$vAccountNumber = $_SESSION['accountNumber'];
-	$result = $conn->query("SELECT vCardNumber, vCardName FROM tblVirtualCard WHERE vAccountNumber='$vAccountNumber'");
+	$result = $conn->query("SELECT vCardNumber, vCardName FROM tblvirtualcard WHERE vAccountNumber='$vAccountNumber'");
 	if ($result->num_rows > 0) {
 		$vCardNumber="";
 		$vCardName="";

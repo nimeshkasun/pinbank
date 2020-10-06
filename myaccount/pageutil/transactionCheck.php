@@ -12,7 +12,7 @@ if ($result->num_rows > 0) {
 	}else{
 }
 
-$result = $conn->query("SELECT * FROM tblTransactions WHERE tAccountNumber='$accountNumber' AND tType = 'Send' ORDER BY tId DESC LIMIT 30");
+$result = $conn->query("SELECT * FROM tbltransactions WHERE tAccountNumber='$accountNumber' AND tType = 'Send' ORDER BY tId DESC LIMIT 30");
 if ($result->num_rows > 0) {
 	while($row = $result->fetch_assoc()) {
 		$temp = $row['tAmount'] / 2;

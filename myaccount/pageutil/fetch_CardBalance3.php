@@ -10,7 +10,7 @@ $vCardBalance3="";
 $vCardName1="";
 $vCardName2="";
 $vCardName3="";
-	$result = $conn->query("SELECT vCardName, vCardBalance FROM tblVirtualCard WHERE vAccountNumber='$vAccountNumber'");
+	$result = $conn->query("SELECT vCardName, vCardBalance FROM tblvirtualcard WHERE vAccountNumber='$vAccountNumber'");
 	if ($result->num_rows > 0) {
 
 		$count = 0;
@@ -32,7 +32,7 @@ $vCardName3="";
 		}
 	}
 
-	$result = $conn->query("SELECT aCurrency FROM tblAccount WHERE aUserEmail='$email'");
+	$result = $conn->query("SELECT aCurrency FROM tblaccount WHERE aUserEmail='$email'");
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 			$aCurrency = $row['aCurrency'];

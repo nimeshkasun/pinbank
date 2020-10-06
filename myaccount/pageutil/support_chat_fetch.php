@@ -1,7 +1,7 @@
 <?php
 require_once '../../db_class/dbClass.php'; 
 session_start(); 
-$q1 = "SELECT * FROM tblMessage WHERE email='".$_SESSION['chatEmail']."' ORDER BY mId DESC LIMIT 500";
+$q1 = "SELECT * FROM tblmessage WHERE email='".$_SESSION['chatEmail']."' ORDER BY mId DESC LIMIT 500";
 $r1 = mysqli_query($conn, $q1);
 while($row = mysqli_fetch_assoc($r1)){
 	$message = $row['message'];

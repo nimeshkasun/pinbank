@@ -19,7 +19,7 @@ $vExpireDate3="";
 $vCSV1="";
 $vCSV2="";
 $vCSV3="";
-	$result = $conn->query("SELECT vCardNumber, vExpireDate, vCSV, vCardName, vCardBalance FROM tblVirtualCard WHERE vAccountNumber='$vAccountNumber'");
+	$result = $conn->query("SELECT vCardNumber, vExpireDate, vCSV, vCardName, vCardBalance FROM tblvirtualcard WHERE vAccountNumber='$vAccountNumber'");
 	if ($result->num_rows > 0) {
 		
 		$count = 0;
@@ -50,7 +50,7 @@ $vCSV3="";
 		}
 	}
 
-	$result = $conn->query("SELECT aCurrency FROM tblAccount WHERE aUserEmail='$email'");
+	$result = $conn->query("SELECT aCurrency FROM tblaccount WHERE aUserEmail='$email'");
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 			$aCurrency = $row['aCurrency'];
