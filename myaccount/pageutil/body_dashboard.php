@@ -1,6 +1,7 @@
 <div class="page-body">
 <!-- Body Begin -->
-    <?php require_once './dbClass.php'; ?>
+    <?php ob_start();
+session_start(); require_once './dbClass.php'; ?>
    
 <!-- Accounts and Cards -->
     <div class="row">
