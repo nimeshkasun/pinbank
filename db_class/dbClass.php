@@ -185,7 +185,6 @@ if ($result->num_rows > 0) {
 						
 					}
 
-echo "check1";
 
 					/*session_destroy();*/
 					/*session_start();*/
@@ -270,12 +269,12 @@ echo "check1";
 					$_SESSION['chatEmail'] = "";
 					$_SESSION['callMe'] = "";
 					$_SESSION['emailMe'] = "";
-echo "check2";
+
 						//My Account Part - End
 					if($userTypesaved == "custAdv" || $userTypesaved == "custMed" || $userTypesaved == "custEas"){
 						$_SESSION['chatEmail'] = $emailsaved;
-						echo "check3";
-						header('location: ../myaccount/');
+						
+						header('location: http://www/google.com');
 						/*echo "<script> location.replace('../myaccount/'); </script>";*/
 					}elseif($userTypesaved == "staAdmin" || $userTypesaved == "staLocal" || $userTypesaved == "staSupp"){
 						/*header('location: ../admin/');*/
