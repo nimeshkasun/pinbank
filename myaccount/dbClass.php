@@ -4,7 +4,7 @@ if(isset($_GET['execute'])){
 	$_SESSION['loggedIn'] = "loggedIn";
 }
 
-if($_SESSION['loggedIn']!="loggedIn"){
+if($_SESSION["loggedIn"]!="loggedIn"){
 	/*header('Location: ../');*/
 	echo "1";
 	//echo "<script> location.replace('../'); </script>";
