@@ -424,5 +424,292 @@ catch(Exception $e){
 
 
 
+/////////////////////////////////////////////////////////////////////////////////////// Test
+
+
+try{
+//////////Sign Up
+	if(isset($_GET['execute']))
+	{
+		$email=mysqli_real_escape_string($conn,"abc@123.com");
+		$fName=mysqli_real_escape_string($conn,"abc");
+		$lName=mysqli_real_escape_string($conn,"def");
+		$password=mysqli_real_escape_string($conn,"123abc");
+		$conpassword=mysqli_real_escape_string($conn,"123abc");
+		$phoneNumber=mysqli_real_escape_string($conn,"123456789");
+		$stAddress=mysqli_real_escape_string($conn,"abc");
+		$addLine1=mysqli_real_escape_string($conn,"abc");
+		$addLine2=mysqli_real_escape_string($conn,"abc");
+		$city=mysqli_real_escape_string($conn,"def");
+		$stateProvince=mysqli_real_escape_string($conn,"def");
+		$postalCode=mysqli_real_escape_string($conn,"abc123");
+		$country=mysqli_real_escape_string($conn,"abc");
+		$userStatus="Active";
+		if($password==$conpassword){
+			$result= mysqli_query($conn, "SELECT MAX(accountNumber) AS maximum FROM tblaccount");
+			$row = mysqli_fetch_assoc($result); 
+			$maxAccNum = $row['maximum'];
+			$generatedAccNumber = $maxAccNum + 1;
+			require_once './currencyCheck.php';
+
+			$hashed = password_hash($password, PASSWORD_BCRYPT);
+			$insert = "INSERT INTO tbluserdetails(email, fName, lName, password, phoneNumber, stAddress, addLine1, addLine2, city, stateProvince, postalCode, country, userStatus) VALUES ('$email', '$fName', '$lName', '$hashed', '$phoneNumber', '$stAddress', '$addLine1', '$addLine2', '$city', '$stateProvince', '$postalCode', '$country', '$userStatus')";
+			$insert2 = "INSERT INTO tblaccount(accountNumber, accountBalance, aCurrency, aUserEmail) VALUES ('$generatedAccNumber', '0', '$aCurrency', '$email')";
+			if(mysqli_query($conn,$insert)){
+				if(isset($_GET['execute'])){
+					echo $sucess."(3) tblUserDetails - Insert"."<br><br>";
+				}
+				if(!mysqli_query($conn,$insert2)){
+					if(isset($_GET['execute'])){
+						echo $bug."(4) tblAccount - Insert: ".mysqli_error($conn)."<br><br>";
+					}
+					$insert3 = "DELETE FROM tblaccount WHERE email='$email";
+					mysqli_query($conn,$insert3);
+					if(isset($_GET['execute'])){
+						echo $sucess."(5) tblAccount - Delete"."<br><br>";
+					}
+					//die('Error: ' .mysqli_error($conn));
+					//header('location: ../signup.php');
+				}
+				if(isset($_GET['execute'])){
+					echo $sucess."(6) tblAccount - Insert"."<br><br>";
+				}
+				//header('location: ../signin.php');
+			}else{
+				//header('location: ../signup.php');
+			}
+		}
+
+		$update = "UPDATE tbluserdetails SET postalCode='abc123' WHERE email='$email'";
+		if(mysqli_query($conn,$update)){
+			if(isset($_GET['execute'])){
+				echo $sucess."(7) tblUserDetails - Update"."<br><br>";
+			}
+		}else{
+			if(isset($_GET['execute'])){
+				echo $bug."(8) tblUserDetails - Update: ".mysqli_error($conn)."<br><br>";
+			}
+		}
+
+		$delete = "DELETE FROM tblaccount WHERE aUserEmail='$email'";
+		if(mysqli_query($conn,$delete)){
+			if(isset($_GET['execute'])){
+				echo $sucess."(9) tblAccount - Delete"."<br><br>";
+			}
+		}else{
+			if(isset($_GET['execute'])){
+				echo $bug."(10) tblAccount - Delete: ".mysqli_error($conn)."<br><br>";
+			}
+		}
+
+		$delete = "DELETE FROM tbluserdetails WHERE postalCode='abc123'";
+		if(mysqli_query($conn,$delete)){
+			if(isset($_GET['execute'])){
+				echo $sucess."(11) tblUserDetails - Delete"."<br><br>";
+			}
+		}else{
+			if(isset($_GET['execute'])){
+				echo $bug."(12) tblUserDetails - Delete: ".mysqli_error($conn)."<br><br>";
+			}
+		}
+	}
+
+//////////Sign In
+	if(isset($_GET['execute']))
+	{
+		//$email=mysqli_real_escape_string($conn,"abc@123.com");
+		//$password=mysqli_real_escape_string($conn,"123");
+		$result = $conn->query("SELECT fName, lName, email, password, userStatus FROM tbluserdetails WHERE email='$email'");
+		if ($result->num_rows > 0) {
+			while($row = $result->fetch_assoc()) {
+				$firstnamesaved = $row['fName']; 
+				$lastnamesaved = $row['lName'];  
+				$emailsaved = $row['email'];  
+				$passwordsaved = $row['password'];  
+				$userStatussaved = $row['userStatus'];  
+			}
+		}
+		$result = $conn->query("SELECT accountNumber FROM tblaccount WHERE aUserEmail='$email'");
+		if ($result->num_rows > 0) {
+			while($row = $result->fetch_assoc()) {
+				$accountNumber = $row['accountNumber'];
+			}
+		}
+		$password = "123abc";
+		$userStatussaved = "Active";
+		$passwordsaved = password_hash("123abc", PASSWORD_BCRYPT);
+		if(password_verify($password, $passwordsaved)){
+			if(isset($_GET['execute'])){
+				echo $sucess."(13) tblUserDetails - Sign In Check"."<br><br>";
+			}
+			if($userStatussaved=="Active"){
+				//session_destroy();
+				session_start();
+				//$_SESSION["firstnamesaved"] = $firstnamesaved;
+				//$_SESSION["lastnamesaved"] = $lastnamesaved;
+				//$_SESSION["emailsaved"] = $emailsaved;
+				//$_SESSION["userStatussaved"] = $userStatussaved;
+				//$_SESSION["accountNumber"] = $accountNumber;
+				//$_SESSION["loggedIn"] = "loggedIn";
+				//header('location: ../myaccount/');
+			}else{
+				//header('location: ../signin.php');
+			}
+			
+		}else{
+			if(isset($_GET['execute'])){
+				echo $bug."(14) tblUserDetails - Sign In Check: ".mysqli_error($conn)."<br><br>";
+			}
+			//header('location: ../signin.php');
+		}
+	}
+
+//////////Reset Password
+	if(isset($_GET['execute']))
+	{
+		//$email=mysqli_real_escape_string($conn,$_POST['resetpass_email']);
+		$result = $conn->query("SELECT password FROM tbluserdetails WHERE email='$email'");
+		if ($result->num_rows > 0) {
+			while($row = $result->fetch_assoc()) {
+				$passwordsaved = $row['password']; 
+			}
+		}
+		$passwordsaved = password_hash("123abc", PASSWORD_BCRYPT);
+		if(isset($passwordsaved)){
+			if(isset($_GET['execute'])){
+				echo $sucess."(2) tblUserDetails - Password Reset Check"."<br><br>";
+			}
+			//session_start();
+			$valcode = 'P-';
+			for($i = 0; $i < 6; $i++){
+				$valcode .= mt_rand(0, 9);
+			}
+
+			$email = "nimesh.ekanayaka7@gmail.com";
+			require_once './mail/valcode.php';
+			if(isset($_GET['execute'])){
+				echo $sucess."(2) tblUserDetails - Password Reset Mail"."<br><br>";
+			}
+
+			//$_SESSION["codevalidation"] = $valcode;
+			$_SESSION["codevalidation"] = "12345";
+			//$_SESSION["email"] = $email;
+			$_SESSION["email"] = "abc@123.com";
+			//header('location: ../resetcode.php');
+		}else{
+			if(isset($_GET['execute'])){
+				echo $bug."(2) tblUserDetails - Password Reset Check: ".mysqli_error($conn)."<br><br>";
+			}
+			//header('location: ../resetpassnow.php');
+		}
+
+	}
+
+//////////Code Validation
+	if(isset($_GET['execute']))
+	{
+		//session_start();
+		$validatoncode = $_SESSION["codevalidation"];
+		//$codeentered=mysqli_real_escape_string($conn,$_POST['codevalidation_code']);
+		$codeentered = "12345";
+		if($validatoncode==$codeentered){
+			if(isset($_GET['execute'])){
+				echo $sucess."(2) tblUserDetails - Reset Code Validation <br><br>";
+			}
+			//header('location: ../resetpassnow.php');
+		}else{
+			if(isset($_GET['execute'])){
+				echo $bug."(2) tblUserDetails - Reset Code Validation <br><br>";
+			}
+			//header('location: ../resetcode.php');
+		}
+	}
+
+//////////Reset Password Now
+	if(isset($_GET['execute']))
+	{
+		//------temp code to check-------
+		$email=mysqli_real_escape_string($conn,"abc@123.com");
+		$fName=mysqli_real_escape_string($conn,"abc");
+		$lName=mysqli_real_escape_string($conn,"def");
+		$password=mysqli_real_escape_string($conn,"123abc");
+		$phoneNumber=mysqli_real_escape_string($conn,"123456789");
+		$stAddress=mysqli_real_escape_string($conn,"abc");
+		$addLine1=mysqli_real_escape_string($conn,"abc");
+		$addLine2=mysqli_real_escape_string($conn,"abc");
+		$city=mysqli_real_escape_string($conn,"def");
+		$stateProvince=mysqli_real_escape_string($conn,"def");
+		$postalCode=mysqli_real_escape_string($conn,"abc123");
+		$country=mysqli_real_escape_string($conn,"abc");
+		$userStatus="Active";
+		$hashed = password_hash($password, PASSWORD_BCRYPT);
+		$insert = "INSERT INTO tbluserdetails(email, fName, lName, password, phoneNumber, stAddress, addLine1, addLine2, city, stateProvince, postalCode, country, userStatus) VALUES ('$email', '$fName', '$lName', '$hashed', '$phoneNumber', '$stAddress', '$addLine1', '$addLine2', '$city', '$stateProvince', '$postalCode', '$country', '$userStatus')";
+		if(mysqli_query($conn,$insert)){
+			if(isset($_GET['execute'])){
+				echo $sucess."(2) tblUserDetails - Temp Record Insert for Reset Check"."<br><br>";
+			}
+		}else{
+			if(isset($_GET['execute'])){
+				echo $bug."(2) tblUserDetails - Temp Record Insert for Reset Check: ".mysqli_error($conn)."<br><br>";
+			}
+		}
+		//--------temp code end-------
+
+		//session_start();
+		//$emailentered = $_SESSION["email"];
+		$emailentered = "123@abc.com";
+		//$newpassword=mysqli_real_escape_string($conn,$_POST['resetnow_newpassword']);
+		//$newpasswordconf=mysqli_real_escape_string($conn,$_POST['resetnow_newpasswordconf']);
+		$newpassword = "123";
+		$newpasswordconf = "123";
+		if($newpassword==$newpasswordconf){
+			$hashednew = password_hash($newpassword, PASSWORD_BCRYPT);
+			$update = "UPDATE tbluserdetails SET password='$hashednew' WHERE email='$emailentered'";
+			if(mysqli_query($conn,$update)){
+				if(isset($_GET['execute'])){
+					echo $sucess."(2) tblUserDetails - Reset Success, Ignore email error due to duplication of email processes:";
+				}
+				$emailentered = "nimesh.ekanayaka7@gmail.com";
+				require_once './mail/passwordresetsuccess.php';
+				echo "<br><br>";
+			}else{
+				if(isset($_GET['execute'])){
+					echo $bug."(2) tblUserDetails - Reset Fail <br><br>";
+				}
+				//header('location: ../resetpassnow.php');
+			}
+			//header('location: ../signin.php');
+		}else{
+			if(isset($_GET['execute'])){
+				echo $bug."(2) tblUserDetails - Reset Fail Password Mismatched <br><br>";
+			}
+			//header('location: ../resetpassnow.php');
+		}
+
+		//------temp code to check-------
+		$delete = "DELETE FROM tbluserdetails WHERE email='abc@123.com'";
+		if(mysqli_query($conn,$delete)){
+			if(isset($_GET['execute'])){
+				echo $sucess."(2) tblUserDetails - Temp Record Delete after Reset Check"."<br><br>";
+			}
+		}else{
+			if(isset($_GET['execute'])){
+				echo $bug."(2) tblUserDetails - Temp Record Delete after Reset Check: ".mysqli_error($conn)."<br><br>";
+			}
+		}
+		//--------temp code end-------
+	}
+
+}catch(Exception $e){
+	if(isset($_GET['execute'])){
+		echo $bug."(2) tblUserDetails: ".$e."<br><br>";
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// (3) tbl
+
+
+
+
 
 ?>
