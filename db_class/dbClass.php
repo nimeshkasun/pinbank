@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 echo "<link rel='stylesheet' href='./check.css'/>";
 
@@ -273,8 +274,7 @@ if ($result->num_rows > 0) {
 						//My Account Part - End
 					if($userTypesaved == "custAdv" || $userTypesaved == "custMed" || $userTypesaved == "custEas"){
 						$_SESSION['chatEmail'] = $emailsaved;
-						$host  = $_SERVER['HTTP_HOST'];
-						header('location: $host/myaccount/');
+						header('location: ../myaccount/');
 						/*echo "<script> location.replace('../myaccount/'); </script>";*/
 					}elseif($userTypesaved == "staAdmin" || $userTypesaved == "staLocal" || $userTypesaved == "staSupp"){
 						/*header('location: ../admin/');*/
