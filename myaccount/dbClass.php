@@ -9,15 +9,15 @@ if(isset($_GET['execute'])){
 
 if($_SESSION["loggedIn"]!="loggedIn"){
 	/*header('Location: ../');*/
-	echo "1";
+	echo "1a";
 	//echo "<script> location.replace('../'); </script>";
 } 
 if(isset($_SESSION['chatEmail'])){
-	echo "3";
+	echo "3a";
 } 
 if($_SESSION["loggedIn"]=="loggedIn"){
 	/*header('Location: ../');*/
-	echo "2";
+	echo "2a";
 	//echo "<script> location.replace('../'); </script>";
 } 
 
