@@ -1,8 +1,12 @@
 <?php
+ob_start();
 session_start();
-    if($_SESSION['loggedIn']!="loggedIn"){
-     header('Location: ../');
- } 
+print_r($_SESSION);
+
+if($_SESSION['loggedIn']!="loggedIn"){
+	header('Location: ../');
+} 
+
 echo "<link rel='stylesheet' href='../db_class/check.css'/>";
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Check Process
