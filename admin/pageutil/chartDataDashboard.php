@@ -38,7 +38,7 @@ echo "<br><br>";*/
 require_once '../../db_class/dbConn.php';
 session_start();
 $accountNumber = $_SESSION['accountNumber'];
-$result = mysqli_query($conn, "SELECT tType, tDate, tAmount FROM tblTransactions WHERE tAccountType='PRA' ");
+$result = mysqli_query($conn, "SELECT tType, tDate, tAmount FROM tbltransactions WHERE tAccountType='PRA' ");
    while($row = mysqli_fetch_array($result)) {
    	$dateGet = $row['tDate'];
    	$createDate = new DateTime($dateGet);
@@ -51,7 +51,7 @@ $dateUnique =  array_unique($date);
 
 foreach ($dateUnique as $date) {
 	//echo "$date <br>";
-  	$result2 = mysqli_query($conn, "SELECT tType, tDate, tAmount FROM tblTransactions WHERE tAccountType='PRA' AND tType='Withdraw' AND tDate LIKE '{$date}%'");
+  	$result2 = mysqli_query($conn, "SELECT tType, tDate, tAmount FROM tbltransactions WHERE tAccountType='PRA' AND tType='Withdraw' AND tDate LIKE '{$date}%'");
    	$dayCost=0;
    	while($row = mysqli_fetch_array($result2)) {
    		$dayCost += $row['tAmount'];
@@ -65,7 +65,7 @@ foreach ($dateUnique as $date) {
 
 foreach ($dateUnique as $date) {
 	//echo "$date <br>";
-  	$result3 = mysqli_query($conn, "SELECT tType, tDate, tAmount FROM tblTransactions WHERE tAccountType='PRA' AND tType='Deposit' AND tDate LIKE '{$date}%'");
+  	$result3 = mysqli_query($conn, "SELECT tType, tDate, tAmount FROM tbltransactions WHERE tAccountType='PRA' AND tType='Deposit' AND tDate LIKE '{$date}%'");
    	$dayCost=0;
    	while($row = mysqli_fetch_array($result3)) {
    		$dayCost += $row['tAmount'];

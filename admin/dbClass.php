@@ -88,7 +88,7 @@ try{
 		$descriptionTo = "Received ".$aCurrency." ".$amount." from account ".$email."<br> to account ".$toEmail.". <br>: ".$description;
 		$userStatus="Active";
 		
-		$result = $conn->query("SELECT accountNumber, accountBalance FROM tblAccount WHERE aUserEmail='$email'");
+		$result = $conn->query("SELECT accountNumber, accountBalance FROM tblaccount WHERE aUserEmail='$email'");
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
 				$accountNumber = $row['accountNumber'];
@@ -100,7 +100,7 @@ try{
 
 			if($accountBalance>=$amount){
 
-				$result = $conn->query("SELECT accountNumber, accountBalance FROM tblAccount WHERE aUserEmail='$toEmail'");
+				$result = $conn->query("SELECT accountNumber, accountBalance FROM tblaccount WHERE aUserEmail='$toEmail'");
 				if ($result->num_rows > 0) {
 					while($row = $result->fetch_assoc()) {
 						$toAccountNumber = $row['accountNumber'];
@@ -112,13 +112,13 @@ try{
 				if(isset($toAccountNumber)){
 	//Increase to account balance					
 					$newAccBalto = $amount + $toAccountBalance;
-					$update = "UPDATE tblAccount SET accountBalance='$newAccBalto' WHERE aUserEmail='$toEmail'";
+					$update = "UPDATE tblaccount SET accountBalance='$newAccBalto' WHERE aUserEmail='$toEmail'";
 					if(mysqli_query($conn,$update)){
 						session_start();
 						$_SESSION['toAccUpdateSuccess'] = "toAccUpdateSuccess";
 	//To account Transaction log insert
 						$timeStamp = date("Y-m-d H:i:sa");
-						$insert = "INSERT INTO tblTransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Receive', '$timeStamp', '$descriptionTo', 'PRA', '$amount', '$newAccBalto', '$toAccountNumber')";
+						$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Receive', '$timeStamp', '$descriptionTo', 'PRA', '$amount', '$newAccBalto', '$toAccountNumber')";
 						if(mysqli_query($conn,$insert)){
 							$_SESSION['toAccTranSuccess'] = "toAccTranSuccess";
 						}else{
@@ -131,12 +131,12 @@ try{
 					}
 	//Reduce from account balance
 					$newAccBalfrom = $accountBalance - $amount;
-					$update = "UPDATE tblAccount SET accountBalance='$newAccBalfrom' WHERE aUserEmail='$email'";
+					$update = "UPDATE tblaccount SET accountBalance='$newAccBalfrom' WHERE aUserEmail='$email'";
 					if(mysqli_query($conn,$update)){
 						$_SESSION['fromAccUpdateSuccess'] = "fromAccUpdateSuccess";
 	//From account Transaction log insert
 						$timeStamp = date("Y-m-d H:i:sa");
-						$insert = "INSERT INTO tblTransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Send', '$timeStamp', '$descriptionFrom', 'PRA', '$amount', '$newAccBalfrom', '$accountNumber')";
+						$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Send', '$timeStamp', '$descriptionFrom', 'PRA', '$amount', '$newAccBalfrom', '$accountNumber')";
 						if(mysqli_query($conn,$insert)){
 							$_SESSION['fromAccTranSuccess'] = "fromAccTranSuccess";
 							header('location: ./');
@@ -250,7 +250,7 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 						$descriptionTo = "Received ".$aCurrency." ".$amount." from card ".$fromCard."<br> to card ".$toCard.". <br>: ".$description;
 						$userStatus="Active";
 
-						$result = $conn->query("SELECT vCardNumber, vCardBalance, vCardOrder FROM tblVirtualCard WHERE vCardNumber='$fromCard'");
+						$result = $conn->query("SELECT vCardNumber, vCardBalance, vCardOrder FROM tblvirtualcard WHERE vCardNumber='$fromCard'");
 						if ($result->num_rows > 0) {
 							while($row = $result->fetch_assoc()) {
 								$cardNumber = $row['vCardNumber'];
@@ -263,7 +263,7 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 						if($fromCard!=$toCard){
 							if($cardBalance>=$amount){
 
-								$result = $conn->query("SELECT vCardNumber, vCardBalance, vAccountNumber, vCardOrder FROM tblVirtualCard WHERE vCardNumber='$toCard'");
+								$result = $conn->query("SELECT vCardNumber, vCardBalance, vAccountNumber, vCardOrder FROM tblvirtualcard WHERE vCardNumber='$toCard'");
 								if ($result->num_rows > 0) {
 									while($row = $result->fetch_assoc()) {
 										$toCardNumber = $row['vCardNumber'];
@@ -277,12 +277,12 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 								if(isset($toCardNumber)){
 //Increase to card balance					
 									$newCardBalto = $amount + $toCardBalance;
-									$update = "UPDATE tblVirtualCard SET vCardBalance='$newCardBalto' WHERE vCardNumber='$toCard'";
+									$update = "UPDATE tblvirtualcard SET vCardBalance='$newCardBalto' WHERE vCardNumber='$toCard'";
 									if(mysqli_query($conn,$update)){
 										$_SESSION['toCardUpdateSuccess'] = "toCardUpdateSuccess";
 //To card Transaction log insert
 										$timeStamp = date("Y-m-d H:i:sa");
-										$insert = "INSERT INTO tblTransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Receive', '$timeStamp', '$descriptionTo', '$vCardOrderTo', '$amount', '$newCardBalto', '$AccountNumber')";
+										$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Receive', '$timeStamp', '$descriptionTo', '$vCardOrderTo', '$amount', '$newCardBalto', '$AccountNumber')";
 										if(mysqli_query($conn,$insert)){
 											$_SESSION['toCardTranSuccess'] = "toCardTranSuccess";
 										}else{
@@ -295,12 +295,12 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 
 //Reduce from card balance
 									$newCardBalfrom = $cardBalance - $amount;
-									$update = "UPDATE tblVirtualCard SET vCardBalance='$newCardBalfrom' WHERE vCardNumber='$fromCard'";
+									$update = "UPDATE tblvirtualcard SET vCardBalance='$newCardBalfrom' WHERE vCardNumber='$fromCard'";
 									if(mysqli_query($conn,$update)){
 										$_SESSION['fromCardUpdateSuccess'] = "fromCardUpdateSuccess";
 //From card Transaction log insert
 										$timeStamp = date("Y-m-d H:i:sa");
-										$insert = "INSERT INTO tblTransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Send', '$timeStamp', '$descriptionFrom', '$cardOrderFrom', '$amount', '$newCardBalfrom', '$AccountNumber')";
+										$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Send', '$timeStamp', '$descriptionFrom', '$cardOrderFrom', '$amount', '$newCardBalfrom', '$AccountNumber')";
 										if(mysqli_query($conn,$insert)){
 											$_SESSION['fromCardTranSuccess'] = "fromCardTranSuccess";
 											header('location: ./');
@@ -394,7 +394,7 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 ///////////////////////////////////////////  New Virtual Card
 										if(isset($_POST['btn_newVcGenerate'])){
 											$accountNumber = $_SESSION['accountNumber'];
-											$result = $conn->query("SELECT vCardNumber, vcardOrder FROM tblVirtualCard WHERE vAccountNumber='$accountNumber'");
+											$result = $conn->query("SELECT vCardNumber, vcardOrder FROM tblvirtualcard WHERE vAccountNumber='$accountNumber'");
 											if ($result->num_rows < 3) {
 												$cardOrderCount = 1;
 												while($row = $result->fetch_assoc()) {
@@ -412,7 +412,7 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 													$csv .= mt_rand(0, 9);
 												}
 												$cardName=mysqli_real_escape_string($conn, $_POST['card_name']);
-												$insert = "INSERT INTO tblVirtualCard(vCardNumber, vExpireDate, vCsv, vCardName, vCardBalance, vCardOrder, vAccountNumber) VALUES ('$cardNum', '$expDate', '$csv', '$cardName', '0', '$newCardOrder', '$accountNumber')";
+												$insert = "INSERT INTO tblvirtualcard(vCardNumber, vExpireDate, vCsv, vCardName, vCardBalance, vCardOrder, vAccountNumber) VALUES ('$cardNum', '$expDate', '$csv', '$cardName', '0', '$newCardOrder', '$accountNumber')";
 												if(mysqli_query($conn,$insert)){
 													$_SESSION['newVcSucc'] = "newVcSucc";
 													header('location: ./vc.php');
@@ -459,23 +459,23 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 ///////////////////////////////////////////  Delete Virtual Card
 													if(isset($_GET['delVc'])){
 														$delCardNum = $_GET['delVc'];
-														$result = $conn->query("SELECT vCardNumber, vCardBalance FROM tblVirtualCard WHERE vCardNumber='$delCardNum'");
+														$result = $conn->query("SELECT vCardNumber, vCardBalance FROM tblvirtualcard WHERE vCardNumber='$delCardNum'");
 														if ($result->num_rows > 0) {
 		//echo $delCardNum." ";
 															while($row = $result->fetch_assoc()) {
 																$balanceVc = $row['vCardBalance'];
 															}
 
-															$deleteVC = "DELETE FROM tblVirtualCard WHERE vCardNumber='$delCardNum'";
+															$deleteVC = "DELETE FROM tblvirtualcard WHERE vCardNumber='$delCardNum'";
 															if(mysqli_query($conn,$deleteVC)){
 
-																$result = $conn->query("SELECT accountBalance FROM tblAccount WHERE accountNumber='$accountNumber'");
+																$result = $conn->query("SELECT accountBalance FROM tblaccount WHERE accountNumber='$accountNumber'");
 																if ($result->num_rows > 0) {
 																	while($row = $result->fetch_assoc()) {
 																		$balanceAcc = $row['accountBalance'];
 																	}
 																	$newBalanceAcc = $balanceAcc + $balanceVc;
-																	$insertVcBal = "UPDATE tblAccount SET accountBalance='$newBalanceAcc' WHERE accountNumber='$accountNumber'";
+																	$insertVcBal = "UPDATE tblaccount SET accountBalance='$newBalanceAcc' WHERE accountNumber='$accountNumber'";
 																	mysqli_query($conn,$insertVcBal);
 
 																	$_SESSION['delVcSucc'] = "delVcSucc";
@@ -541,7 +541,7 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 																		$userStatus="Active";
 																		$_SESSION['accountNumbertran'] = "";
 
-																		$result = $conn->query("SELECT accountBalance FROM tblAccount WHERE accountNumber='$fromAccount'");
+																		$result = $conn->query("SELECT accountBalance FROM tblaccount WHERE accountNumber='$fromAccount'");
 																		if ($result->num_rows > 0) {
 																			while($row = $result->fetch_assoc()) {
 																				$accountBalance = $row['accountBalance'];
@@ -551,7 +551,7 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 
 																		if($accountBalance>=$amount){
 
-																			$result = $conn->query("SELECT vCardNumber, vCardBalance, vAccountNumber FROM tblVirtualCard WHERE vCardNumber='$toCard'");
+																			$result = $conn->query("SELECT vCardNumber, vCardBalance, vAccountNumber FROM tblvirtualcard WHERE vCardNumber='$toCard'");
 																			if ($result->num_rows > 0) {
 																				while($row = $result->fetch_assoc()) {
 																					$toCardNumber = $row['vCardNumber'];
@@ -564,12 +564,12 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 																			if(isset($toCardNumber)){
 //Increase to card balance					
 																				$newCardBalto = $amount + $toCardBalance;
-																				$update = "UPDATE tblVirtualCard SET vCardBalance='$newCardBalto' WHERE vCardNumber='$toCard'";
+																				$update = "UPDATE tblvirtualcard SET vCardBalance='$newCardBalto' WHERE vCardNumber='$toCard'";
 																				if(mysqli_query($conn,$update)){
 																					$_SESSION['toCardUpdateSuccess'] = "toCardUpdateSuccess";
 //To card Transaction log insert
 																					$timeStamp = date("Y-m-d H:I:sa");
-																					$insert = "INSERT INTO tblTransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Receive', '$timeStamp', '$descriptionTo', '$cardOrder', '$amount', '$newCardBalto', '$AccountNumber')";
+																					$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Receive', '$timeStamp', '$descriptionTo', '$cardOrder', '$amount', '$newCardBalto', '$AccountNumber')";
 																					if(mysqli_query($conn,$insert)){
 																						$_SESSION['toCardTranSuccess'] = "toCardTranSuccess";
 																					}else{
@@ -578,12 +578,12 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 																					}
 //Reduce from account balance
 																					$newAccountBalancefrom = $accountBalance - $amount;
-																					$update = "UPDATE tblAccount SET accountBalance='$newAccountBalancefrom' WHERE accountNumber='$fromAccount'";
+																					$update = "UPDATE tblaccount SET accountBalance='$newAccountBalancefrom' WHERE accountNumber='$fromAccount'";
 																					if(mysqli_query($conn,$update)){
 																						$_SESSION['fromAccUpdateSuccess'] = "fromAccUpdateSuccess";
 //From account Transaction log insert
 																						$timeStamp = date("Y-m-d H:I:sa");
-																						$insert = "INSERT INTO tblTransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Send', '$timeStamp', '$descriptionFrom', '$cardOrder', '$amount', '$newAccountBalancefrom', '$AccountNumber')";
+																						$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Send', '$timeStamp', '$descriptionFrom', '$cardOrder', '$amount', '$newAccountBalancefrom', '$AccountNumber')";
 																						if(mysqli_query($conn,$insert)){
 																							$_SESSION['fromAccTranSuccess'] = "fromAccTranSuccess";
 																							header('location: ./pra.php');
@@ -702,7 +702,7 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 																							if(isset($_POST['searchAccount'])){
 																								$_SESSION['accountNumberCust'] = mysqli_real_escape_string($conn, $_POST['searchAccount']);
 																								$accountNumberCust = $_SESSION['accountNumberCust'];
-																								$result = $conn->query("SELECT aUserEmail FROM tblAccount WHERE accountNumber='$accountNumberCust'");
+																								$result = $conn->query("SELECT aUserEmail FROM tblaccount WHERE accountNumber='$accountNumberCust'");
 																								if ($result->num_rows > 0) {
 																									while($row = $result->fetch_assoc()) {
 																										$aUserEmail = $row['aUserEmail'];
@@ -726,7 +726,7 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 																							}else if(isset($_GET['searchAccount'])){
 																								$_SESSION['accountNumberCust'] = mysqli_real_escape_string($conn, $_GET['searchAccount']);
 																								$accountNumberCust = $_SESSION['accountNumberCust'];
-																								$result = $conn->query("SELECT aUserEmail FROM tblAccount WHERE accountNumber='$accountNumberCust'");
+																								$result = $conn->query("SELECT aUserEmail FROM tblaccount WHERE accountNumber='$accountNumberCust'");
 																								if ($result->num_rows > 0) {
 																									while($row = $result->fetch_assoc()) {
 																										$aUserEmail = $row['aUserEmail'];
@@ -1044,7 +1044,7 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 
 				/*if($accountBalance>=$amount){*/
 
-					$result = $conn->query("SELECT accountNumber, accountBalance FROM tblAccount WHERE aUserEmail='$toEmail'");
+					$result = $conn->query("SELECT accountNumber, accountBalance FROM tblaccount WHERE aUserEmail='$toEmail'");
 					if ($result->num_rows > 0) {
 						while($row = $result->fetch_assoc()) {
 							$toAccountNumber = $row['accountNumber'];
@@ -1056,13 +1056,13 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 					if(isset($toAccountNumber)){
 	//Increase to account balance					
 						$newAccBalto = $amount + $toAccountBalance;
-						$update = "UPDATE tblAccount SET accountBalance='$newAccBalto' WHERE aUserEmail='$toEmail'";
+						$update = "UPDATE tblaccount SET accountBalance='$newAccBalto' WHERE aUserEmail='$toEmail'";
 						if(mysqli_query($conn,$update)){
 							/*session_start();*/
 							$_SESSION['toAccUpdateSuccess'] = "toAccUpdateSuccess";
 	//To account Transaction log insert
 							$timeStamp = date("Y-m-d H:i:sa");
-							$insert = "INSERT INTO tblTransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Deposit', '$timeStamp', '$descriptionDep', 'PRA', '$amount', '$newAccBalto', '$toAccountNumber')";
+							$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Deposit', '$timeStamp', '$descriptionDep', 'PRA', '$amount', '$newAccBalto', '$toAccountNumber')";
 							if(mysqli_query($conn,$insert)){
 								$_SESSION['toAccTranSuccess'] = "toAccTranSuccess";
 								header('location: ./pra.php');
@@ -1178,7 +1178,7 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 				$descriptionDep = "Withdraw ".$aCurrency." ".$amountReceived." <br> from account ".$toEmail.". <br>: ".$description;
 				$userStatus="Active";
 				
-				$result = $conn->query("SELECT accountNumber, accountBalance FROM tblAccount WHERE aUserEmail='$toEmail'");
+				$result = $conn->query("SELECT accountNumber, accountBalance FROM tblaccount WHERE aUserEmail='$toEmail'");
 				if ($result->num_rows > 0) {
 					while($row = $result->fetch_assoc()) {
 						$accountNumber = $row['accountNumber'];
@@ -1221,12 +1221,12 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 							}*/
 	//Reduce from account balance
 							$newAccBalfrom = $accountBalance - $amount;
-							$update = "UPDATE tblAccount SET accountBalance='$newAccBalfrom' WHERE aUserEmail='$toEmail'";
+							$update = "UPDATE tblaccount SET accountBalance='$newAccBalfrom' WHERE aUserEmail='$toEmail'";
 							if(mysqli_query($conn,$update)){
 								$_SESSION['fromAccUpdateSuccess'] = "fromAccUpdateSuccess";
 	//From account Transaction log insert
 								$timeStamp = date("Y-m-d H:i:sa");
-								$insert = "INSERT INTO tblTransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Withdraw', '$timeStamp', '$descriptionDep', 'PRA', '$amount', '$newAccBalfrom', '$accountNumber')";
+								$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Withdraw', '$timeStamp', '$descriptionDep', 'PRA', '$amount', '$newAccBalfrom', '$accountNumber')";
 								if(mysqli_query($conn,$insert)){
 									$_SESSION['fromAccTranSuccess'] = "fromAccTranSuccess";
 									header('location: ./pra.php');

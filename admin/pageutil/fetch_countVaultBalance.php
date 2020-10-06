@@ -1,7 +1,7 @@
 <?php
 //fetch.php
 require_once '../../db_class/dbConn.php';
-$result = $conn->query("SELECT ROUND(SUM(accountBalance), 2) AS sumBal, aCurrency FROM tblAccount");
+$result = $conn->query("SELECT ROUND(SUM(accountBalance), 2) AS sumBal, aCurrency FROM tblaccount");
 if ($result->num_rows > 0) {
 	while($row = $result->fetch_assoc()) {
 		$accountBalance = $row['sumBal'];

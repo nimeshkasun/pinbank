@@ -2,7 +2,7 @@
 //fetch.php
 require_once '../../db_class/dbConn.php';
 
-	$result = $conn->query("SELECT COUNT(vCardName) AS countCard FROM tblVirtualCard");
+	$result = $conn->query("SELECT COUNT(vCardName) AS countCard FROM tblvirtualcard");
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 			$countCard = $row['countCard'];

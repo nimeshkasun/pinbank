@@ -14,7 +14,7 @@ require_once '../db_class/dbConn.php';
  $country = "";
 
 $email = $_SESSION["emailsavedCust"];
-	$result = $conn->query("SELECT * FROM tblUserDetails WHERE email='$email'");
+	$result = $conn->query("SELECT * FROM tbluserdetails WHERE email='$email'");
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 			 $fName = $row['fName'];

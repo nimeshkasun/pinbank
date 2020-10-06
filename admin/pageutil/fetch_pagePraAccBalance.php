@@ -6,7 +6,7 @@ $accountBalance = "";
 $aCurrency = "";
 
 $email = $_SESSION["emailsavedCust"];
-	$result = $conn->query("SELECT accountNumber, accountBalance, aCurrency FROM tblAccount WHERE aUserEmail='$email'");
+	$result = $conn->query("SELECT accountNumber, accountBalance, aCurrency FROM tblaccount WHERE aUserEmail='$email'");
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 			$accountBalance = $row['accountBalance'];
