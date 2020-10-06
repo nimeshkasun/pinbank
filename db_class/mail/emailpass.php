@@ -6,7 +6,7 @@
 	$Username = "pinonlinebanking";
 	
 	//Password to use for SMTP authentication
-	$mail->Password = "khrxonijqnrykxna";
+	$mail->Password = "Pin@2020";
 //Dont change --end
 
 ?>
