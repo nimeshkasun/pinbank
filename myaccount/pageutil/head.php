@@ -52,6 +52,7 @@
 
         <?php
             require_once './dbClass.php';
+            print_r($_SESSION);
         ?>
         <!-- Lock Screen popup -->
         <link rel="stylesheet" type="text/css" href="./files/assets/pop.css">
