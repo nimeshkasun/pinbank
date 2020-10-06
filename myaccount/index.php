@@ -4,7 +4,7 @@
         <?php require_once './pageutil/head.php'; ?>
     </head>
     <body>
-        <?php print_r($_SESSION); //require_once './pageutil/preloader.php'; ?>
+        <?php ob_start(); session_start(); print_r($_SESSION); //require_once './pageutil/preloader.php'; ?>
         <div id="pcoded" class="pcoded">
             <div class="pcoded-overlay-box"></div>
                 <div class="pcoded-container navbar-wrapper">
