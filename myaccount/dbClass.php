@@ -9,16 +9,11 @@ if(isset($_GET['execute'])){
 
 if($_SESSION["loggedIn"]!="loggedIn"){
 	/*header('Location: ../');*/
-	echo "1a";
+	echo "session not working: /myaccount/dbClass.php line 12";
 	//echo "<script> location.replace('../'); </script>";
-} 
-if(isset($_SESSION['chatEmail'])){
-	echo "3a";
 } 
 if($_SESSION["loggedIn"]=="loggedIn"){
-	/*header('Location: ../');*/
-	echo "2a";
-	//echo "<script> location.replace('../'); </script>";
+	echo "session works: /myaccount/dbClass.php line 16";
 } 
 
 echo "<link rel='stylesheet' href='../db_class/check.css'/>";
