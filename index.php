@@ -3,6 +3,7 @@
 <head>
 	<?php
 	require_once "src/head.php";
+	echo "string";
 	?>
 </head>
 <body>
