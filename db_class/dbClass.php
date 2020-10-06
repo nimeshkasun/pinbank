@@ -1,5 +1,4 @@
 <?php
-ob_start(); session_start();
 echo "<link rel='stylesheet' href='./check.css'/>";
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Check Process
@@ -186,8 +185,8 @@ if ($result->num_rows > 0) {
 					}
 
 
-					/*session_destroy();
-					session_start();*/
+					session_destroy();
+					session_start();
 					$_SESSION["firstnamesaved"] = $firstnamesaved;
 					$_SESSION["lastnamesaved"] = $lastnamesaved;
 					$_SESSION["emailsaved"] = $emailsaved;

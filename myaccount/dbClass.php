@@ -1,5 +1,5 @@
 <?php
-ob_start(); session_start();
+session_start();
 if(isset($_GET['execute'])){
 	$_SESSION['loggedIn'] = "loggedIn";
 }
