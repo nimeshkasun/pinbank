@@ -53,7 +53,7 @@
         <?php
             ob_start();
             session_start();
-            require_once './dbClass.php';
+            include './dbClass.php';
             print_r($_SESSION);
         ?>
         <!-- Lock Screen popup -->
