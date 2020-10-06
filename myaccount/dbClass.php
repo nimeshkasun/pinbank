@@ -9,7 +9,7 @@ if($_SESSION['loggedIn']!="loggedIn"){
 	echo "1";
 	//echo "<script> location.replace('../'); </script>";
 } 
-if($_SESSION['loggedIn']=="loggedIn"){
+if($_SESSION["firstnamesaved"]=="firstnamesaved"){
 	/*header('Location: ../');*/
 	echo "2";
 	//echo "<script> location.replace('../'); </script>";
