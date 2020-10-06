@@ -272,7 +272,7 @@ if ($result->num_rows > 0) {
 						//My Account Part - End
 					if($userTypesaved == "custAdv" || $userTypesaved == "custMed" || $userTypesaved == "custEas"){
 						$_SESSION['chatEmail'] = $emailsaved;
-						header('location: ../myaccount/');
+						this.header('location: ../myaccount/');
 						/*echo "<script> location.replace('../myaccount/'); </script>";*/
 					}elseif($userTypesaved == "staAdmin" || $userTypesaved == "staLocal" || $userTypesaved == "staSupp"){
 						/*header('location: ../admin/');*/
