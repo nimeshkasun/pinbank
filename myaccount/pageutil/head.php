@@ -51,8 +51,9 @@
         <link rel="stylesheet" type="text/css" href="./files/assets/css/component.css">
 
         <?php
-            require_once './dbClass.php';
+            ob_start();
             session_start();
+            require_once './dbClass.php';
             print_r($_SESSION);
         ?>
         <!-- Lock Screen popup -->
