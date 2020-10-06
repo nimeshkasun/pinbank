@@ -1,5 +1,5 @@
 <?php
-ob_start();
+/*ob_start();*/
 session_start();
 print_r($_SESSION);
 if(isset($_GET['execute'])){
