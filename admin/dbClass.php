@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-print_r($_SESSION);
+//print_r($_SESSION);
 
 if($_SESSION['loggedIn']!="loggedIn"){
 	header('Location: ../');
