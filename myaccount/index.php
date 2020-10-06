@@ -1,12 +1,7 @@
-﻿<?php
-ob_start();
-session_start();
-print_r($_SESSION);
-?>
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
     <head>
-        <?php //require_once './pageutil/head.php'; ?>
+        <?php require_once './pageutil/head.php'; ?>
     </head>
     <body>
         <?php require_once './pageutil/preloader.php'; ?>
