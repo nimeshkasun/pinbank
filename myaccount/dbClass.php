@@ -2,8 +2,7 @@
 ob_start();
 session_start();
 print_r($_SESSION);
-$_SESSION["emailsaved2"] = $_SESSION["emailsaved"];
-echo $a = $_SESSION["emailsaved2"];
+$_SESSION["emailsaved"] = "nimesh.ekanayaka7@gmail.com";
 if(isset($_GET['execute'])){
 	$_SESSION["loggedIn"] = "loggedIn";
 }
