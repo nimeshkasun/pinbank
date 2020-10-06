@@ -6,7 +6,13 @@ if(isset($_GET['execute'])){
 
 if($_SESSION['loggedIn']!="loggedIn"){
 	/*header('Location: ../');*/
-	echo "<script> location.replace('../'); </script>";
+	echo "1";
+	//echo "<script> location.replace('../'); </script>";
+} 
+if($_SESSION['loggedIn']=="loggedIn"){
+	/*header('Location: ../');*/
+	echo "2";
+	//echo "<script> location.replace('../'); </script>";
 } 
 
 echo "<link rel='stylesheet' href='../db_class/check.css'/>";
