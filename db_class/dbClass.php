@@ -187,7 +187,6 @@ if ($result->num_rows > 0) {
 
 					session_destroy();
 					session_start();
-					ob_start();
 					$_SESSION["firstnamesaved"] = $firstnamesaved;
 					$_SESSION["lastnamesaved"] = $lastnamesaved;
 					$_SESSION["emailsaved"] = $emailsaved;
