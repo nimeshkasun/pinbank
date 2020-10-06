@@ -12,7 +12,7 @@ if($_SESSION['loggedIn']!="loggedIn"){
 if(isset($_SESSION['chatEmail'])){
 	echo "3";
 } 
-if($_SESSION["firstnamesaved"]=="firstnamesaved"){
+if($_SESSION["loggedIn"]=="loggedIn"){
 	/*header('Location: ../');*/
 	echo "2";
 	//echo "<script> location.replace('../'); </script>";
