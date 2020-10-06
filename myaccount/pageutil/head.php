@@ -52,6 +52,7 @@
 
         <?php
             require_once './dbClass.php';
+            session_start();
             print_r($_SESSION);
         ?>
         <!-- Lock Screen popup -->
