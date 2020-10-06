@@ -8,12 +8,8 @@ if(isset($_GET['execute'])){
 }
 
 if($_SESSION["loggedIn"]!="loggedIn"){
-	/*header('Location: ../');*/
-	echo "session not working: /myaccount/dbClass.php line 12";
+	header('Location: ../');
 	//echo "<script> location.replace('../'); </script>";
-} 
-if($_SESSION["loggedIn"]=="loggedIn"){
-	echo "session works: /myaccount/dbClass.php line 16";
 } 
 
 echo "<link rel='stylesheet' href='../db_class/check.css'/>";
