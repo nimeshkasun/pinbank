@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿<?php
+ob_start();
+session_start();
+print_r($_SESSION);
+?>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <?php require_once './pageutil/head.php'; ?>
