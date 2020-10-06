@@ -274,8 +274,9 @@ if ($result->num_rows > 0) {
 						//My Account Part - End
 					if($userTypesaved == "custAdv" || $userTypesaved == "custMed" || $userTypesaved == "custEas"){
 						$_SESSION['chatEmail'] = $emailsaved;
-						session_write_close();
+
 						header('location: ../myaccount/');
+						die(); 
 						/*header('location: ../check.php');*/
 						/*echo "<script> location.replace('../myaccount/'); </script>";*/
 					}elseif($userTypesaved == "staAdmin" || $userTypesaved == "staLocal" || $userTypesaved == "staSupp"){
