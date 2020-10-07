@@ -54,7 +54,7 @@ if(isset($_GET['execute'])){
 
 ////////// Sign Up Page
 try{
-	if(isset($_POST['signup_signup']))
+	if(isset($_POST['signup_button']))
 	{
 		$email=mysqli_real_escape_string($conn,$_POST['signup_email']);
 		$fName=mysqli_real_escape_string($conn,$_POST['signup_firstname']);
@@ -91,7 +91,8 @@ try{
 				}
 				header('location: ../signin.php');
 			}else{
-				header('location: ../signup.php');
+				$error = mysqli_error($conn);
+				header('location: ../signup.php?error='.$error.'');
 			}
 		}
 	}
@@ -447,6 +448,7 @@ try{
 		$postalCode=mysqli_real_escape_string($conn,"abc123");
 		$country=mysqli_real_escape_string($conn,"abc");
 		$userStatus="Active";
+		$userType="custAdv";
 		if($password==$conpassword){
 			$result= mysqli_query($conn, "SELECT MAX(accountNumber) AS maximum FROM tblaccount");
 			$row = mysqli_fetch_assoc($result); 
@@ -455,7 +457,7 @@ try{
 			require_once './currencyCheck.php';
 
 			$hashed = password_hash($password, PASSWORD_BCRYPT);
-			$insert = "INSERT INTO tbluserdetails(email, fName, lName, password, phoneNumber, stAddress, addLine1, addLine2, city, stateProvince, postalCode, country, userStatus) VALUES ('$email', '$fName', '$lName', '$hashed', '$phoneNumber', '$stAddress', '$addLine1', '$addLine2', '$city', '$stateProvince', '$postalCode', '$country', '$userStatus')";
+			$insert = "INSERT INTO tbluserdetails(email, fName, lName, password, phoneNumber, stAddress, addLine1, addLine2, city, stateProvince, postalCode, country, userStatus, userType) VALUES ('$email', '$fName', '$lName', '$hashed', '$phoneNumber', '$stAddress', '$addLine1', '$addLine2', '$city', '$stateProvince', '$postalCode', '$country', '$userStatus', '$userType')";
 			$insert2 = "INSERT INTO tblaccount(accountNumber, accountBalance, aCurrency, aUserEmail) VALUES ('$generatedAccNumber', '0', '$aCurrency', '$email')";
 			if(mysqli_query($conn,$insert)){
 				if(isset($_GET['execute'])){

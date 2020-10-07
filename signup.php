@@ -29,6 +29,15 @@
 	<!-- partial:index.partial.html -->
 	<br>
 	<form method="POST" action="./db_class/dbClass.php">
+		<?php 
+		if(isset($_GET['error'])){
+			$error = $_GET['error'];
+				echo "<div class='alert warning'>
+				<span class='closebtn'>&times;</span>  
+				<strong>Warning! </strong>".$error.
+				"</div>";
+		}
+		?>
 		<div class="svgContainer">
 			<div>
 				<svg class="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
@@ -184,7 +193,7 @@
 			<?php require_once './rootpageutil/countrylist.php'; ?>
 		</div>
 		<div class="inputGroup inputGroup3">
-			<button id="signup_signup" name="signup_signup">Sign Up</button>
+			<button id="signup_signup" name="signup_button">Sign Up</button>
 		</div>	
 		<br><br>
 		<a href="./signin.php">Already have an account?</a>
