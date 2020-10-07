@@ -5,7 +5,7 @@ $mail->isSMTP();
 $mail->SMTPDebug = 0;
 $mail->Debugoutput = 'html';
 $mail->Host = 'mail.pinbank.live';
-$mail->Port = 587;
+$mail->Port = 465;
 $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
 require_once 'emailpass.php';
