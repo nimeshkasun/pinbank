@@ -644,8 +644,9 @@ try{
 		$postalCode=mysqli_real_escape_string($conn,"abc123");
 		$country=mysqli_real_escape_string($conn,"abc");
 		$userStatus="Active";
+		$userType="custAdv";
 		$hashed = password_hash($password, PASSWORD_BCRYPT);
-		$insert = "INSERT INTO tbluserdetails(email, fName, lName, password, phoneNumber, stAddress, addLine1, addLine2, city, stateProvince, postalCode, country, userStatus) VALUES ('$email', '$fName', '$lName', '$hashed', '$phoneNumber', '$stAddress', '$addLine1', '$addLine2', '$city', '$stateProvince', '$postalCode', '$country', '$userStatus')";
+		$insert = "INSERT INTO tbluserdetails(email, fName, lName, password, phoneNumber, stAddress, addLine1, addLine2, city, stateProvince, postalCode, country, userStatus, userType) VALUES ('$email', '$fName', '$lName', '$hashed', '$phoneNumber', '$stAddress', '$addLine1', '$addLine2', '$city', '$stateProvince', '$postalCode', '$country', '$userStatus', '$userType')";
 		if(mysqli_query($conn,$insert)){
 			if(isset($_GET['execute'])){
 				echo $sucess."(2) tblUserDetails - Temp Record Insert for Reset Check"."<br><br>";
