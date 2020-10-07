@@ -6,8 +6,7 @@
 	$mail->Debugoutput = 'html';
 	/*$mail->Host = 'smtp.gmail.com';*/
 	$mail->Host = 'mail.pinbank.live';
-	/*$mail->Port = 587;*/
-	$mail->Port = 465;
+	$mail->Port = 587;
 	$mail->SMTPSecure = 'tls';
 	$mail->SMTPAuth = true;
 	require_once 'emailpass.php';
