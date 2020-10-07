@@ -127,7 +127,7 @@ try{
 							session_start();
 							$_SESSION['toAccUpdateSuccess'] = "toAccUpdateSuccess";
 		//To account Transaction log insert
-							$timeStamp = date("Y-m-d H:i:sa");
+							$timeStamp = date("Y-m-d H:i:s");
 							$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Receive', '$timeStamp', '$descriptionTo', 'PRA', '$amount', '$newAccBalto', '$toAccountNumber')";
 							if(mysqli_query($conn,$insert)){
 								$_SESSION['toAccTranSuccess'] = "toAccTranSuccess";
@@ -145,7 +145,7 @@ try{
 						if(mysqli_query($conn,$update)){
 							$_SESSION['fromAccUpdateSuccess'] = "fromAccUpdateSuccess";
 		//From account Transaction log insert
-							$timeStamp = date("Y-m-d H:i:sa");
+							$timeStamp = date("Y-m-d H:i:s");
 							$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Send', '$timeStamp', '$descriptionFrom', 'PRA', '$amount', '$newAccBalto', '$accountNumber')";
 							if(mysqli_query($conn,$insert)){
 								$_SESSION['fromAccTranSuccess'] = "fromAccTranSuccess";
@@ -330,7 +330,7 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 											if(mysqli_query($conn,$update)){
 												$_SESSION['toCardUpdateSuccess'] = "toCardUpdateSuccess";
 //To card Transaction log insert
-												$timeStamp = date("Y-m-d H:i:sa");
+												$timeStamp = date("Y-m-d H:i:s");
 												$insert = "INSERT INTO tblTransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Receive', '$timeStamp', '$descriptionTo', '$vCardOrderTo', '$amount', '$newCardBalto', '$AccountNumber')";
 												if(mysqli_query($conn,$insert)){
 													$_SESSION['toCardTranSuccess'] = "toCardTranSuccess";
@@ -348,7 +348,7 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 											if(mysqli_query($conn,$update)){
 												$_SESSION['fromCardUpdateSuccess'] = "fromCardUpdateSuccess";
 //From card Transaction log insert
-												$timeStamp = date("Y-m-d H:i:sa");
+												$timeStamp = date("Y-m-d H:i:s");
 												$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Send', '$timeStamp', '$descriptionFrom', '$cardOrderFrom', '$amount', '$newCardBalfrom', '$AccountNumber')";
 												if(mysqli_query($conn,$insert)){
 													$_SESSION['fromCardTranSuccess'] = "fromCardTranSuccess";
@@ -616,7 +616,7 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 													if(mysqli_query($conn,$update)){
 														$_SESSION['toCardUpdateSuccess'] = "toCardUpdateSuccess";
 //To card Transaction log insert
-														$timeStamp = date("Y-m-d H:I:sa");
+														$timeStamp = date("Y-m-d H:i:s");
 														$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Receive', '$timeStamp', '$descriptionTo', '$cardOrder', '$amount', '$newCardBalto', '$AccountNumber')";
 														if(mysqli_query($conn,$insert)){
 															$_SESSION['toCardTranSuccess'] = "toCardTranSuccess";
@@ -630,7 +630,7 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 														if(mysqli_query($conn,$update)){
 															$_SESSION['fromAccUpdateSuccess'] = "fromAccUpdateSuccess";
 //From account Transaction log insert
-															$timeStamp = date("Y-m-d H:I:sa");
+															$timeStamp = date("Y-m-d H:i:s");
 															$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Send', '$timeStamp', '$descriptionFrom', '$cardOrder', '$amount', '$newAccountBalancefrom', '$AccountNumber')";
 															if(mysqli_query($conn,$insert)){
 																$_SESSION['fromAccTranSuccess'] = "fromAccTranSuccess";
@@ -971,7 +971,7 @@ try{
 						echo $success."(8) tblAccount - To Account balance update"."<br><br>";
 					}
 //To account Transaction log insert
-					$timeStamp = date("Y-m-d H:I:s"); 
+					$timeStamp = date("Y-m-d H:i:s"); 
 					$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Receive', '$timeStamp', '$descriptionTo', 'PRA', '$amount', '$newAccBalto', '$toAccountNumber')";
 					if(mysqli_query($conn,$insert)){
 						if(isset($_GET['execute'])){
@@ -1001,7 +1001,7 @@ try{
 							echo $success."(13) tblAccount - From Account balance update"."<br><br>";
 						}
 //From account Transaction log insert
-						$timeStamp = date("Y-m-d H:I:sa");
+						$timeStamp = date("Y-m-d H:i:s");
 						$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Send', '$timeStamp', '$descriptionFrom', 'PRA', '$amount', '$newAccBalto', '$accountNumber')";
 						if(mysqli_query($conn,$insert)){
 							if(isset($_GET['execute'])){
@@ -1090,7 +1090,7 @@ try{
 						echo $success."(25) tblVirtualCard - To Card balance update"."<br><br>";
 					}
 //To card Transaction log insert
-					$timeStamp = date("Y-m-d H:I:sa");
+					$timeStamp = date("Y-m-d H:i:s");
 					$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Receive', '$timeStamp', '$descriptionTo', '$cardOrder', '$amount', '$newCardBalto', '$AccountNumber')";
 					if(mysqli_query($conn,$insert)){
 						if(isset($_GET['execute'])){
@@ -1120,7 +1120,7 @@ try{
 							echo $success."(30) tblVirtualCard - From Card balance update"."<br><br>";
 						}
 //From card Transaction log insert
-						$timeStamp = date("Y-m-d H:I:sa");
+						$timeStamp = date("Y-m-d H:i:s");
 						$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Send', '$timeStamp', '$descriptionFrom', '$cardOrder', '$amount', '$newCardBalfrom', '$AccountNumber')";
 						if(mysqli_query($conn,$insert)){
 							if(isset($_GET['execute'])){
@@ -1260,7 +1260,7 @@ try{
 						echo $success."(45) tblVirtualCard - To Card balance update"."<br><br>";
 					}
 //To card Transaction log insert
-					$timeStamp = date("Y-m-d H:I:sa");
+					$timeStamp = date("Y-m-d H:i:s");
 					$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Receive', '$timeStamp', '$descriptionTo', '$cardOrder', '$amount', '$newCardBalto', '$AccountNumber')";
 					if(mysqli_query($conn,$insert)){
 						if(isset($_GET['execute'])){
@@ -1290,7 +1290,7 @@ try{
 							echo $success."(50) tblVirtualCard - From Card balance update"."<br><br>";
 						}
 //From account Transaction log insert
-						$timeStamp = date("Y-m-d H:I:sa");
+						$timeStamp = date("Y-m-d H:i:s");
 						$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Send', '$timeStamp', '$descriptionFrom', '$cardOrder', '$amount', '$newAccountBalancefrom', '$AccountNumber')";
 						if(mysqli_query($conn,$insert)){
 							if(isset($_GET['execute'])){
