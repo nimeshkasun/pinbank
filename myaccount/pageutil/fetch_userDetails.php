@@ -34,11 +34,9 @@ $email = $_SESSION["emailsaved"];
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-header-text">Customer Details</h5>
-                        <?php if($_SESSION["userTypesaved"] == "custAdv" || $_SESSION["userTypesaved"] == "custMed"){ ?>
                         <button id="edit-btn" type="button" class="btn btn-sm btn-primary waves-effect waves-light f-right">
     <i class="icofont icofont-edit"></i>
 </button>
-<?php } ?>
                     </div>
                     <div class="card-block">
                         <div class="view-info">
@@ -132,7 +130,6 @@ $email = $_SESSION["emailsaved"];
                             <!-- end of row -->
                         </div>
                         <!-- end of view-info -->
-                        <?php if($_SESSION["userTypesaved"] == "custAdv" || $_SESSION["userTypesaved"] == "custMed"){ ?>
                         <div class="edit-info">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -240,7 +237,6 @@ $email = $_SESSION["emailsaved"];
                             <!-- end of row -->
                         </div>
                         <!-- end of edit-info -->
-                        <?php } ?>
                     </div>
                     <!-- end of card-block -->
                 </div>
