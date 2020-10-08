@@ -20,16 +20,12 @@ if(isset($_GET['execute'])){
 }
 
 /*
-
 if(isset($_GET['execute'])){
 	echo $success."(1) comment"."<br><br>";
 }
-
 if(isset($_GET['execute'])){
 	echo $bug."(1) comment: ".mysqli_error($con)."<br><br>";
 }
-
-
 //Notification
 if(isset($_SESSION['loggedIn'])){
 	echo "<script>$(document).ready(function(){
@@ -1354,6 +1350,4 @@ try{
 	}
 }
 																														?>
-
-
 
