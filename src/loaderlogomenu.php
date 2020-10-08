@@ -28,13 +28,13 @@
 				<li><a href="about.php">About</a></li>
 				<li><a href="contact.php">Contact</a></li>
 				<?php
-					if(isset($_SESSION['loggedIn'])){
-						if($_SESSION['userTypesaved'] == "staAdmin" || $_SESSION['userTypesaved'] == "staLocal" || $_SESSION['userTypesaved'] == "staSupp"){
-							echo "<li><a href='./admin/'>My Account</a></li>";
-						}else{
-							echo "<li><a href='./myaccount/'>My Account</a></li>";
-						}
+				if(isset($_SESSION['loggedIn'])){
+					if($_SESSION['userTypesaved'] == "staAdmin" || $_SESSION['userTypesaved'] == "staLocal" || $_SESSION['userTypesaved'] == "staSupp"){
+						echo "<li><a href='./admin/'>My Account</a></li>";
+					}else{
+						echo "<li><a href='./myaccount/'>My Account</a></li>";
 					}
+				}
 				?>
 			</ul>
 		</nav>

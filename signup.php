@@ -32,10 +32,10 @@
 		<?php 
 		if(isset($_GET['error'])){
 			$error = $_GET['error'];
-				echo "<div class='alert warning'>
-				<span class='closebtn'>&times;</span>  
-				<strong>Warning! </strong>".$error.
-				"</div>";
+			echo "<div class='alert warning'>
+			<span class='closebtn'>&times;</span>  
+			<strong>Warning! </strong>".$error.
+			"</div>";
 		}
 		?>
 		<div class="svgContainer">
