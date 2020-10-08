@@ -1193,7 +1193,7 @@ try{
 				if(isset($_GET['execute'])){
 					echo $success."(39) tblVirtualCard - Temp record insert"."<br><br>";
 				}
-				$delete = "DELETE from tblVirtualCard WHERE vCardNumber = '$cardNum'";
+				$delete = "DELETE from tblvirtualcard WHERE vCardNumber = '$cardNum'";
 				if(mysqli_query($conn,$delete)){
 					if(isset($_GET['execute'])){
 						echo $success."(40) tblVirtualCard - Temp record delete"."<br><br>";
