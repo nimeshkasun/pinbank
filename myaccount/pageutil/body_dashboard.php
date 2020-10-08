@@ -118,11 +118,13 @@
                         <i class="icofont icofont-login "></i>
                         <span>Account Transfer</span>
                     </label>
+                    <?php if($_SESSION["userTypesaved"] == "custAdv" || $_SESSION["userTypesaved"] == "custMed"){ ?>
                     <input id="tab2" type="radio" name="tabs">
                     <label class="j-tabs-label" for="tab2" title="Registration">
                         <i class="feather icon-credit-card"></i>
                         <span>Card Transfer</span>
                     </label>
+                    <?php } ?>
                     <div id="tabs-section-1" class="j-tabs-section">
                       <div class="card">
                         <div class="card-block">
