@@ -68,6 +68,7 @@
             </li>
         </ul> -->
 
+<?php if($_SESSION["userTypesaved"] == "staAdmin" || $_SESSION["userTypesaved"] == "staSupp"){ ?>
     <div class="pcoded-navigatio-lavel">Support</div>
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
@@ -77,6 +78,7 @@
                 </a>
             </li>
         </ul>
+<?php } ?>
 
 
 

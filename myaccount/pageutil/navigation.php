@@ -20,11 +20,13 @@
                             <span class="pcoded-mtext">Primary Account</span>
                         </a>
                     </li>
+                    <?php if($_SESSION["userTypesaved"] == "custAdv" || $_SESSION["userTypesaved"] == "custMed"){ ?>
                     <li class="">
                         <a href="./vc.php">
                             <span class="pcoded-mtext">Virtual Cards</span>
                         </a>
                     </li>
+                    <?php } ?>
                 </ul>
             </li>
             <!-- <li class="">

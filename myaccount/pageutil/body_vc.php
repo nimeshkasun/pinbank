@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-
+<?php if($_SESSION["userTypesaved"] == "custAdv"){ ?>
         <div class="row">
         <div class="col-sm-12">
             <div class="card">
@@ -66,6 +66,7 @@
             </div>
         </div>
     </div>
+    <?php } ?>
 <!-- Body End-->
 </div>
 

@@ -7,7 +7,7 @@
       <div class="col-md-6 col-xl-3" id="load_accBalance">
         <?php require_once './pageutil/fetch_pagePraAccBalance.php'; ?>
       </div>
-                    
+         <?php if($_SESSION["userTypesaved"] == "custAdv" || $_SESSION["userTypesaved"] == "custMed"){ ?>       
          <div class="col-md-6 col-xl-3">
             <div class="card widget-card-1">
                 <div class="card-block-small">
@@ -20,7 +20,8 @@
                     </div>
                 </div>
             </div>
-        </div>             
+        </div>  
+        <?php } ?>           
 
     </div>
 

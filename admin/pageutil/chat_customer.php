@@ -71,10 +71,12 @@ else{
 					</div>
 
 					<br>
+					<?php if($_SESSION["userTypesaved"] == "staAdmin" || $_SESSION["userTypesaved"] == "staSupp"){ ?>
 					<form method="POST">
 					<input type="text" name="message" style="width:80%;height:40px;margin-top:2px;"  placeholder=" Say something..." />
 					<input type="submit" name="submit" style="width:18.5%;height:40px;" value="Send" />
 					</form>
+				<?php } ?>
 				</div>
 		    </div>
 		</div>

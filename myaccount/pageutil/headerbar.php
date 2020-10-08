@@ -15,7 +15,7 @@
 
         <div class="navbar-container container-fluid">
             <ul class="nav-left">
-                <li class="header-search">
+                <!-- <li class="header-search">
                     <div class="main-search morphsearch-search">
                         <div class="input-group">
                             <span class="input-group-addon search-close"><i class="feather icon-x"></i></span>
@@ -23,7 +23,7 @@
                             <span class="input-group-addon search-btn"><i class="feather icon-search"></i></span>
                         </div>
                     </div>
-                </li>
+                </li> -->
                 <li>
                     <a href="#!" onclick="javascript:toggleFullScreen()">
                         <i class="feather icon-maximize full-screen"></i>
@@ -108,15 +108,17 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="email-inbox.htm">
+                                <a href="./support.php">
                                     <i class="feather icon-mail"></i> My Messages
                                 </a>
                             </li>
+                            <?php if($_SESSION["userTypesaved"] == "custAdv"){ ?>
                             <li>
                                 <a href="" id="btn_lock" data-toggle="modal">
                                     <i class="feather icon-lock"></i> Lock Screen
                                 </a> 
                             </li>
+                            <?php } ?>
                             <li>
                                 <a href="../signout.php">
                                     <i class="feather icon-log-out"></i> Sign Out

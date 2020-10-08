@@ -60,43 +60,43 @@
                         </ul>
                         <script>
                             $(document).ready(function(){
-                               
-                               function load_unseen_notification(view = '')
+                             
+                             function load_unseen_notification(view = '')
+                             {
+                              $.ajax({
+                               url:"pageutil/headbar_noti_fetch.php",
+                               method:"POST",
+                               data:{view:view},
+                               dataType:"json",
+                               success:function(data)
                                {
-                                  $.ajax({
-                                     url:"pageutil/headbar_noti_fetch.php",
-                                     method:"POST",
-                                     data:{view:view},
-                                     dataType:"json",
-                                     success:function(data)
-                                     {
-                                        $('.menunot').html(data.notification);
-                                        if(data.unseen_notification > 0)
-                                        {
-                                           $('.count').html(data.unseen_notification);
-                                           var a = new Audio()
-                                           a.src =   "pageutil/headbar_noti_fetch.wav"
-                                           a.play()
-                                       }
-                                   }
-                               });
-                              }
-                              
-                              load_unseen_notification();
-                              
-                              $(document).on('click', '.dropdown-togglee', function(){
-                                  $('.count').html('0');
-                                  load_unseen_notification('yes');
-                              });
-                              
-                              setInterval(function(){ 
-                                  load_unseen_notification();; 
-                              }, 5000);
-                              
+                                $('.menunot').html(data.notification);
+                                if(data.unseen_notification > 0)
+                                {
+                                 $('.count').html(data.unseen_notification);
+                                 var a = new Audio()
+                                 a.src =   "pageutil/headbar_noti_fetch.wav"
+                                 a.play()
+                             }
+                         }
+                     });
+                          }
+                          
+                          load_unseen_notification();
+                          
+                          $(document).on('click', '.dropdown-togglee', function(){
+                              $('.count').html('0');
+                              load_unseen_notification('yes');
                           });
-                      </script>
-                  </div>
-              </li>
+                          
+                          setInterval(function(){ 
+                              load_unseen_notification();; 
+                          }, 5000);
+                          
+                      });
+                  </script>
+              </div>
+          </li>
                 <!-- <li class="header-notification">
                     <div class="dropdown-primary dropdown">
                         <div class="displayChatbox dropdown-toggle" data-toggle="dropdown">
@@ -123,11 +123,13 @@
                                     <i class="feather icon-user"></i> Profile
                                 </a>
                             </li>
-                            <li>
-                                <a href="email-inbox.htm">
-                                    <i class="feather icon-mail"></i> My Messages
-                                </a>
-                            </li>
+                            <?php if($_SESSION["userTypesaved"] == "staAdmin" || $_SESSION["userTypesaved"] == "staSupp"){ ?>
+                                <li>
+                                    <a href="./support.php">
+                                        <i class="feather icon-mail"></i> My Messages
+                                    </a>
+                                </li>
+                            <?php } ?>
                             <li>
                                 <a href="" id="btn_lock" data-toggle="modal">
                                     <i class="feather icon-lock"></i> Lock Screen

@@ -27,6 +27,18 @@
         </div>
       </div>
 
+      <div class="col-md-6 col-xl-3">
+        <div class="card text-center text-white bg-c-blue">
+            <div class="card-block">
+                <h4 class="m-t-10 m-b-10">Employee Account Number</h4>
+                <p class="m-b-0">
+                        
+                            <h6 class="m-t-10 m-b-10"><?php echo $accountNumber = $_SESSION["accountNumber"]; ?></h6>
+                </p>
+            </div>
+        </div>
+      </div>
+
     </div>
 
         <div class="row">

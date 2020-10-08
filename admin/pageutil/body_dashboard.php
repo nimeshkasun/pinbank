@@ -94,7 +94,7 @@
             </div>
         </div>
     </div>
-
+<?php if($_SESSION["userTypesaved"] == "staAdmin" || $_SESSION["userTypesaved"] == "staLocal"){ ?>
     <div class="col-md-6 col-xl-3">
       <div class="card">
         <div class="card-header">
@@ -228,6 +228,7 @@
             </div>
         </div>
     </div>
+    <?php } ?>
     <div class="col-xl-3 col-md-12">
       <div class="card user-card2">
           <div class="card-header">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2020 at 06:47 PM
+-- Generation Time: Oct 08, 2020 at 05:34 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -46,9 +46,10 @@ INSERT INTO `tblaccount` (`aId`, `accountNumber`, `accountBalance`, `aCurrency`,
 (33, 199600000003, 0, 'LKR', 'bhanuka@gmail.com'),
 (53, 199600000004, 0, 'LKR', 'user1@pinbank.live'),
 (54, 199600000005, 0, 'LKR', 'user2@pinbank.live'),
-(55, 199600000006, 0, 'LKR', 'admin@pinbank.live'),
-(56, 199600000007, 0, 'LKR', 'staff@pinbank.live'),
-(57, 199600000008, 0, 'LKR', 'support@pinbank.live');
+(55, 199600000006, 0, 'LKR', 'user3@pinbank.live'),
+(56, 199600000007, 0, 'LKR', 'admin@pinbank.live'),
+(57, 199600000008, 0, 'LKR', 'staff@pinbank.live'),
+(58, 199600000009, 0, 'LKR', 'support@pinbank.live');
 
 -- --------------------------------------------------------
 
@@ -181,7 +182,15 @@ INSERT INTO `tbliptracking` (`trID`, `trIp`, `trRegion`, `trCountry`, `trLocatio
 (119, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-06 19:44:00', 199600000000),
 (120, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-07 16:34:57', 199600000000),
 (121, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-07 17:39:34', 199600000000),
-(122, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-07 18:43:31', 199600000000);
+(122, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-07 18:43:31', 199600000000),
+(123, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 07:48:23', 199600000000),
+(124, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 17:07:25', 199600000000),
+(125, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 17:07:48', 199600000000),
+(126, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 17:08:52', 199600000000),
+(127, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 17:11:43', 199600000000),
+(128, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 17:30:47', 199600000000),
+(129, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 17:31:20', 199600000000),
+(130, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 17:32:36', 199600000000);
 
 -- --------------------------------------------------------
 
@@ -502,7 +511,8 @@ INSERT INTO `tbluserdetails` (`uId`, `email`, `fName`, `lName`, `password`, `pho
 (125, 'staff@pinbank.live', 'Nimesh', 'Staff', '$2y$10$gaiZ16alkss.zMBBMBBWQOnKe3FFcJ2ei8EYRBzZVvfrh901V3G2S', 775895403, 'No 101', 'Samagi Mawatha', 'Borupana', 'Ratmalana', 'Western Province', '10390', 'SriLanka', 'Active', 'staLocal', 10000),
 (126, 'support@pinbank.live', 'Nimesh', 'Support', '$2y$10$3UxmpCeap2P00YSUFuQTuuEOmJ0X58noks8s57nmdbpFjWqK2/10W', 775895404, 'No 101', 'Samagi Mawatha', 'Borupana', 'Ratmalana', 'Western Province', '10390', 'SriLanka', 'Active', 'staSupp', 10000),
 (121, 'user1@pinbank.live', 'Alain', 'Parker', '$2y$10$6qGDFYDIIH8wHZKCWCc0yO9w5eykTFIRcTxv2FlQXqJNBCzApiZBO', 718810575, 'New Scheme', 'Track 05', 'Gomarankalla', 'Galenbindunuwewa', 'North Central Province', '50390', 'SriLanka', 'Active', 'custAdv', 10000),
-(122, 'user2@pinbank.live', 'John', 'Perera', '$2y$10$S4F2ZtMA0HIkNSPLZ6rize.jjiUZ5glp2XkCyReCyWY4of2AOhIVa', 768552521, '1/30', 'Kotelawala Street', 'Kandy Road', 'Horana', 'Western Province', '10390', 'SriLanka', 'Active', 'custAdv', 10000);
+(122, 'user2@pinbank.live', 'John', 'Perera', '$2y$10$S4F2ZtMA0HIkNSPLZ6rize.jjiUZ5glp2XkCyReCyWY4of2AOhIVa', 768552521, '1/30', 'Kotelawala Street', 'Kandy Road', 'Horana', 'Western Province', '10390', 'SriLanka', 'Active', 'custMed', 10000),
+(127, 'user3@pinbank.live', 'Stefan', 'Salvatore', '$2y$10$TzwdorT/B.iamJsSbV5VoOOe3RUE3vJXa5mid9SGtzyIZTc.x.p/K', 715116363, 'PO 13', 'University Road', 'Sooriyawewa', 'Ambilipitiya', 'Southern Province', '50390', 'SriLanka', 'Active', 'custEas', 10000);
 
 -- --------------------------------------------------------
 
@@ -586,13 +596,13 @@ ALTER TABLE `tblvirtualcard`
 -- AUTO_INCREMENT for table `tblaccount`
 --
 ALTER TABLE `tblaccount`
-  MODIFY `aId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `aId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=578;
 
 --
 -- AUTO_INCREMENT for table `tbliptracking`
 --
 ALTER TABLE `tbliptracking`
-  MODIFY `trID` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `trID` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT for table `tblmessage`
@@ -610,7 +620,7 @@ ALTER TABLE `tbltransactions`
 -- AUTO_INCREMENT for table `tbluserdetails`
 --
 ALTER TABLE `tbluserdetails`
-  MODIFY `uId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `uId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
 -- AUTO_INCREMENT for table `tblvirtualcard`

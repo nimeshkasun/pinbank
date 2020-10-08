@@ -14,6 +14,7 @@
                 });     
             </script>
         </div>
+        <?php if($_SESSION["userTypesaved"] == "custAdv" || $_SESSION["userTypesaved"] == "custMed"){ ?>
         <div class="col-md-6 col-xl-3" id="load_cardBalance1">
             <script>
                 $(document).ready(function(){
@@ -44,6 +45,7 @@
                 });     
             </script>
     </div>
+    <?php } ?>
 
     <div class="col-md-6 col-xl-3">
       <div class="card">
@@ -94,7 +96,7 @@
         </div>
       </div>
     </div>
-
+<?php if($_SESSION["userTypesaved"] == "custAdv" || $_SESSION["userTypesaved"] == "custMed"){ ?>
     <div class="col-md-6 col-xl-3">
       <div class="card">
         <div class="card-header">
@@ -154,11 +156,11 @@
           </div>
       </div>
     </div>
+<?php } ?>
 
 
 
-
-
+<?php if($_SESSION["userTypesaved"] == "custAdv"){ ?>
     <div class="col-md-6 col-xl-3">
       <div class="card">
         <div class="card-header">
@@ -221,7 +223,7 @@
           </div>
       </div>
     </div>
-
+<?php } ?>
 
 
 

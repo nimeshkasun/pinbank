@@ -8,7 +8,7 @@
         <?php require_once './pageutil/fetch_pagePraAccBalance.php'; ?>
 
       </div>
-                    
+            <?php if($_SESSION["userTypesaved"] == "staAdmin" || $_SESSION["userTypesaved"] == "staLocal"){ ?>        
          <div class="col-md-6 col-xl-3">
             <div class="card widget-card-1">
                 <div class="card-block-small">
@@ -50,7 +50,7 @@
                 </div>
             </div>
         </div>            
-
+<?php } ?>
     </div>
 
       <div class="row">

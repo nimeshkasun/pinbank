@@ -14,6 +14,8 @@
                 });     
             </script>
         </div>
+        
+        <?php if($_SESSION["userTypesaved"] == "custAdv" || $_SESSION["userTypesaved"] == "custMed"){ ?>
         <div class="col-md-6 col-xl-3" id="load_cardBalance1">
             <script>
                 $(document).ready(function(){
@@ -43,7 +45,9 @@
                  }, 1000);
                 });     
             </script>
-    </div>
+    	</div>
+        <?php } ?>
+
     <div class="col-xl-9 col-md-12">
         <div class="card">
             <div class="card-header">
@@ -207,27 +211,29 @@
                 </div>
             </div>
       </div>
-    </div>
+  </div>
+  <?php if($_SESSION["userTypesaved"] == "custAdv"){ ?>
+  	<div class="col-xl-9 col-md-12">
+  		<div class="card">
+  			<div class="card-header">
+  				<h5>Transaction Analysis</h5>
+  				<div class="card-header-right">
+  					<ul class="list-unstyled card-option">
+  						<li><i class="feather icon-maximize full-card"></i></li>
+  						<li><i class="feather icon-minus minimize-card"></i></li>
+  						<li><i class="feather icon-trash-2 close-card"></i></li>
+  					</ul>
+  				</div>
+  			</div>
+  			<div class="card-block">
+  				<div id="chartdiv"></div>
 
-    <div class="col-xl-9 col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h5>Transaction Analysis</h5>
-                <div class="card-header-right">
-                  <ul class="list-unstyled card-option">
-                      <li><i class="feather icon-maximize full-card"></i></li>
-                      <li><i class="feather icon-minus minimize-card"></i></li>
-                      <li><i class="feather icon-trash-2 close-card"></i></li>
-                  </ul>
-                </div>
-            </div>
-            <div class="card-block">
-                <div id="chartdiv"></div>
-
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-3 col-md-12">
+  			</div>
+  		</div>
+  	</div>
+  <?php } ?>
+  <?php if($_SESSION["userTypesaved"] == "custAdv" || $_SESSION["userTypesaved"] == "custMed"){ ?>
+  <div class="col-xl-3 col-md-12">
       <div class="card user-card2">
           <div class="card-header">
             <h5>Exchange Rates</h5>
@@ -282,7 +288,7 @@
           <a href="./exchangerates.php"><button class="btn btn-warning btn-block p-t-15 p-b-15">All Exchange Rates</button></a>
       </div>
     </div>
-
+<?php } ?>
 
 
 

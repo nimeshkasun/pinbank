@@ -4,6 +4,11 @@
         <?php require_once './pageutil/head.php'; ?>
     </head>
     <body>
+        <?php 
+            if($_SESSION["userTypesaved"] == "custEas"){ 
+                header('location: ./index.php');
+            }
+        ?>
         <?php require_once './pageutil/preloader.php'; ?>
         <div id="pcoded" class="pcoded">
             <div class="pcoded-overlay-box"></div>
