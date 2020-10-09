@@ -321,12 +321,12 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 										if(isset($toCardNumber)){
 //Increase to card balance					
 											$newCardBalto = $amount + $toCardBalance;
-											$update = "UPDATE tblvirtualCard SET vCardBalance='$newCardBalto' WHERE vCardNumber='$toCard'";
+											$update = "UPDATE tblvirtualcard SET vCardBalance='$newCardBalto' WHERE vCardNumber='$toCard'";
 											if(mysqli_query($conn,$update)){
 												$_SESSION['toCardUpdateSuccess'] = "toCardUpdateSuccess";
 //To card Transaction log insert
 												$timeStamp = date("Y-m-d H:i:s");
-												$insert = "INSERT INTO tblTransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Receive', '$timeStamp', '$descriptionTo', '$vCardOrderTo', '$amount', '$newCardBalto', '$AccountNumber')";
+												$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Receive', '$timeStamp', '$descriptionTo', '$vCardOrderTo', '$amount', '$newCardBalto', '$AccountNumber')";
 												if(mysqli_query($conn,$insert)){
 													$_SESSION['toCardTranSuccess'] = "toCardTranSuccess";
 												}else{
@@ -339,7 +339,7 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 
 //Reduce from card balance
 											$newCardBalfrom = $cardBalance - $amount;
-											$update = "UPDATE tblvirtualCard SET vCardBalance='$newCardBalfrom' WHERE vCardNumber='$fromCard'";
+											$update = "UPDATE tblvirtualcard SET vCardBalance='$newCardBalfrom' WHERE vCardNumber='$fromCard'";
 											if(mysqli_query($conn,$update)){
 												$_SESSION['fromCardUpdateSuccess'] = "fromCardUpdateSuccess";
 //From card Transaction log insert
