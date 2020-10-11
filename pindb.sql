@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 08, 2020 at 05:34 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- Host: localhost:3306
+-- Generation Time: Oct 11, 2020 at 07:37 AM
+-- Server version: 5.7.31-cll-lve
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `pindb`
+-- Database: `pinbankl_pindb`
 --
 
 -- --------------------------------------------------------
@@ -40,13 +41,13 @@ CREATE TABLE `tblaccount` (
 --
 
 INSERT INTO `tblaccount` (`aId`, `accountNumber`, `accountBalance`, `aCurrency`, `aUserEmail`) VALUES
-(1, 199600000000, 316662, 'LKR', 'nimesh.ekanayaka7@gmail.com'),
-(6, 199600000001, 44774.4, 'LKR', 'lahiruthivankara@gmail.com'),
+(1, 199600000000, 316602, 'LKR', 'nimesh.ekanayaka7@gmail.com'),
+(6, 199600000001, 44804.4, 'LKR', 'lahiruthivankara@gmail.com'),
 (32, 199600000002, 0, 'LKR', 'nimesh@edvicon.org'),
 (33, 199600000003, 0, 'LKR', 'bhanuka@gmail.com'),
-(53, 199600000004, 0, 'LKR', 'user1@pinbank.live'),
-(54, 199600000005, 0, 'LKR', 'user2@pinbank.live'),
-(55, 199600000006, 0, 'LKR', 'user3@pinbank.live'),
+(53, 199600000004, 91500, 'LKR', 'user1@pinbank.live'),
+(54, 199600000005, 99700, 'LKR', 'user2@pinbank.live'),
+(55, 199600000006, 99300, 'LKR', 'user3@pinbank.live'),
 (56, 199600000007, 0, 'LKR', 'admin@pinbank.live'),
 (57, 199600000008, 0, 'LKR', 'staff@pinbank.live'),
 (58, 199600000009, 0, 'LKR', 'support@pinbank.live');
@@ -190,7 +191,29 @@ INSERT INTO `tbliptracking` (`trID`, `trIp`, `trRegion`, `trCountry`, `trLocatio
 (127, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 17:11:43', 199600000000),
 (128, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 17:30:47', 199600000000),
 (129, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 17:31:20', 199600000000),
-(130, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 17:32:36', 199600000000);
+(130, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 17:32:36', 199600000000),
+(131, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 15:54:14', 199600000000),
+(132, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 16:01:31', 199600000000),
+(133, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 16:02:45', 199600000000),
+(134, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 16:10:58', 199600000000),
+(135, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 16:16:39', 199600000000),
+(136, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 16:17:17', 199600000000),
+(137, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 16:17:50', 199600000000),
+(138, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 16:19:05', 199600000000),
+(139, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 16:26:31', 199600000000),
+(140, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 16:27:17', 199600000000),
+(141, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 16:35:53', 199600000000),
+(142, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 16:37:26', 199600000000),
+(143, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-08 16:52:39', 199600000000),
+(144, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-09 16:31:01', 199600000000),
+(145, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-09 16:33:03', 199600000000),
+(146, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-09 17:03:19', 199600000000),
+(147, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-10 01:34:15', 199600000000),
+(148, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-10 01:38:13', 199600000000),
+(149, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-10 14:36:56', 199600000000),
+(150, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-10 14:40:26', 199600000000),
+(151, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-10 14:56:27', 199600000000),
+(152, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-10 15:05:17', 199600000000);
 
 -- --------------------------------------------------------
 
@@ -221,7 +244,36 @@ INSERT INTO `tblmessage` (`mId`, `message`, `email`, `lName`) VALUES
 (83, 'hi', 'nimesh.ekanayaka7@gmail.com', 'Ekanayake'),
 (84, 'h', 'nimesh.ekanayaka7@gmail.com', 'Admin'),
 (85, 'hi', 'nimesh.ekanayaka7@gmail.com', 'Ekanayake'),
-(86, 'test', 'nimesh.ekanayaka7@gmail.com', 'Admin');
+(86, 'test', 'nimesh.ekanayaka7@gmail.com', 'Admin'),
+(87, 'this user temporarily will be held due to test data insertion to the online system', 'lahiruthivankara@gmail.com', 'Admin'),
+(88, 'Hi', 'user2@pinbank.live', 'Perera'),
+(89, 'Hi, I\'m Nimesh from Pin Bank support. How may I assist you today?', 'user2@pinbank.live', 'Support'),
+(90, 'I need to how can I add new virtual card', 'user2@pinbank.live', 'Perera'),
+(91, 'Please follow these steps:', 'user2@pinbank.live', 'Support'),
+(92, 'In your navigation, click on Virtual Cards menu', 'user2@pinbank.live', 'Support'),
+(93, 'You will see \'New Virtual Card\' section in the right side of your screen or if you\'re using a smartphone, at the bottom of the screen. Click on that', 'user2@pinbank.live', 'Support'),
+(94, 'Then give a name to the card and click on Generate New Card. Now the card will be generated and you can find the card details in the same window', 'user2@pinbank.live', 'Support'),
+(95, 'To reload your VC, navigate to Transfer Money window or you can reload directly in Primary Account window. You can find these windows via the navigation menu.', 'user2@pinbank.live', 'Support'),
+(96, 'Is there anything else I can assist you with?', 'user2@pinbank.live', 'Support'),
+(97, 'No, that\'s all. Thank you.', 'user2@pinbank.live', 'Perera'),
+(98, 'If you have any more questions do not hesitate to contact us. Thank you for contacting Pin Bank Support. Have a nice day!', 'user2@pinbank.live', 'Support'),
+(99, 'Have a nice day!', 'user2@pinbank.live', 'Perera'),
+(100, 'Hi', 'nimesh.ekanayaka7@gmail.com', 'Ekanayake'),
+(101, 'I have a question regarding a transaction I have made previously', 'nimesh.ekanayaka7@gmail.com', 'Ekanayake'),
+(102, 'Is it possible for me to know, whether my payment has received to the account I transfered?', 'nimesh.ekanayaka7@gmail.com', 'Ekanayake'),
+(103, 'hi', 'nimesh.ekanayaka7@gmail.com', 'Support'),
+(104, 'I\'m Kasun. I will be assisting you with this inquiry.', 'nimesh.ekanayaka7@gmail.com', 'Support'),
+(105, 'Usually, if the transferred amount is debited from your account balance, which means the receiver\'s account has been credited successfully.', 'nimesh.ekanayaka7@gmail.com', 'Support'),
+(106, 'And I will be able to look into this for you', 'nimesh.ekanayaka7@gmail.com', 'Support'),
+(107, 'May I ask the username of the receiver\'s account and the transferred amount for the verification?', 'nimesh.ekanayaka7@gmail.com', 'Support'),
+(108, 'user name is: lahiruthivankara@gmail.com', 'nimesh.ekanayaka7@gmail.com', 'Ekanayake'),
+(109, 'and transfered Rs.20000', 'nimesh.ekanayaka7@gmail.com', 'Ekanayake'),
+(110, 'Thank you for the information. Let me check this for you.', 'nimesh.ekanayaka7@gmail.com', 'Support'),
+(111, 'Hi, the transaction you made has been successfully credited to the receivers account.', 'nimesh.ekanayaka7@gmail.com', 'Support'),
+(112, 'is there anything else I can assist you with?', 'nimesh.ekanayaka7@gmail.com', 'Support'),
+(113, 'no that\'s all', 'nimesh.ekanayaka7@gmail.com', 'Ekanayake'),
+(114, 'thank you for the support. have a nice day', 'nimesh.ekanayaka7@gmail.com', 'Ekanayake'),
+(115, 'Thank you for contacting Pin Bank Support. Have a nice day!', 'nimesh.ekanayaka7@gmail.com', 'Support');
 
 -- --------------------------------------------------------
 
@@ -232,13 +284,13 @@ INSERT INTO `tblmessage` (`mId`, `message`, `email`, `lName`) VALUES
 CREATE TABLE `tbltransactions` (
   `tId` bigint(255) NOT NULL,
   `tType` varchar(100) NOT NULL,
-  `tDate` datetime NOT NULL DEFAULT current_timestamp(),
+  `tDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `tDescription` varchar(255) NOT NULL,
   `tAccountType` varchar(100) NOT NULL,
   `tAmount` float NOT NULL,
   `tBalance` float NOT NULL,
   `tAccountNumber` bigint(255) NOT NULL,
-  `notStatus` int(11) NOT NULL DEFAULT 1
+  `notStatus` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -468,10 +520,35 @@ INSERT INTO `tbltransactions` (`tId`, `tType`, `tDate`, `tDescription`, `tAccoun
 (599, 'Send', '2020-09-18 17:00:30', 'Transfered LKR  10.00 to account lahiruthivankara@gmail.com<br> from account nimesh.ekanayaka7@gmail.com. <br>: Test 3', 'PRA', 10, 44692.8, 199600000000, 1),
 (606, 'Receive', '2020-09-18 20:30:19', 'Received LKR  10.80 from account nimesh.ekanayaka7@gmail.com<br> to account lahiruthivankara@gmail.com. <br>: Test 3', 'PRA', 10.8, 44713.6, 199600000001, 0),
 (607, 'Send', '2020-09-18 20:30:19', 'Transfered LKR  10.80 to account lahiruthivankara@gmail.com<br> from account nimesh.ekanayaka7@gmail.com. <br>: Test 3', 'PRA', 10.8, 44713.6, 199600000000, 1),
-(620, 'Receive', '2020-10-06 18:26:47', 'Received LKR  10.00 from account nimesh.ekanayaka7@gmail.com<br> to account lahiruthivankara@gmail.com. <br>: Test 3', 'PRA', 10, 44743.6, 199600000001, 1),
+(620, 'Receive', '2020-10-06 18:26:47', 'Received LKR  10.00 from account nimesh.ekanayaka7@gmail.com<br> to account lahiruthivankara@gmail.com. <br>: Test 3', 'PRA', 10, 44743.6, 199600000001, 0),
 (621, 'Send', '2020-10-06 18:26:47', 'Transfered LKR  10.00 to account lahiruthivankara@gmail.com<br> from account nimesh.ekanayaka7@gmail.com. <br>: Test 3', 'PRA', 10, 44743.6, 199600000000, 1),
-(634, 'Receive', '2020-10-07 17:39:46', 'Received LKR  10.80 from account nimesh.ekanayaka7@gmail.com<br> to account lahiruthivankara@gmail.com. <br>: 11', 'PRA', 10.8, 44774.4, 199600000001, 1),
-(635, 'Send', '2020-10-07 17:39:46', 'Transfered LKR  10.80 to account lahiruthivankara@gmail.com<br> from account nimesh.ekanayaka7@gmail.com. <br>: 11', 'PRA', 10.8, 44774.4, 199600000000, 1);
+(634, 'Receive', '2020-10-07 17:39:46', 'Received LKR  10.80 from account nimesh.ekanayaka7@gmail.com<br> to account lahiruthivankara@gmail.com. <br>: 11', 'PRA', 10.8, 44774.4, 199600000001, 0),
+(635, 'Send', '2020-10-07 17:39:46', 'Transfered LKR  10.80 to account lahiruthivankara@gmail.com<br> from account nimesh.ekanayaka7@gmail.com. <br>: 11', 'PRA', 10.8, 44774.4, 199600000000, 1),
+(654, 'Deposit', '2020-10-08 16:12:03', 'Deposit  LKR100,000.00 <br> to account user1@pinbank.live <br>: Account opening deposit', 'PRA', 100000, 100000, 199600000004, 1),
+(655, 'Deposit', '2020-10-08 16:12:47', 'Deposit  LKR100,000.00 <br> to account user2@pinbank.live <br>: Account opening deposit', 'PRA', 100000, 100000, 199600000005, 1),
+(656, 'Deposit', '2020-10-08 16:13:26', 'Deposit  LKR100,000.00 <br> to account user3@pinbank.live <br>: Account opening deposit', 'PRA', 100000, 100000, 199600000006, 1),
+(657, 'Receive', '2020-10-08 16:21:03', 'Received LKR 5000.00 from account 199600000004<br> to account 1996780990777286. <br>: Reload for eBay payments', '', 5000, 5000, 199600000004, 0),
+(658, 'Send', '2020-10-08 16:21:03', 'Transfered LKR 5000.00 to account 1996780990777286<br> from account 199600000004. <br>: Reload for eBay payments', '', 5000, 95000, 199600000004, 1),
+(659, 'Receive', '2020-10-08 16:22:02', 'Received LKR 1500.00 from account 199600000004<br> to account 1996615633264053. <br>: For October month', '', 1500, 1500, 199600000004, 0),
+(660, 'Send', '2020-10-08 16:22:02', 'Transfered LKR 1500.00 to account 1996615633264053<br> from account 199600000004. <br>: For October month', '', 1500, 93500, 199600000004, 1),
+(661, 'Receive', '2020-10-08 16:25:42', 'Received LKR  1000.00 from account user1@pinbank.live<br> to account user2@pinbank.live. <br>: Payment for gift pack', 'PRA', 1000, 101000, 199600000005, 0),
+(662, 'Send', '2020-10-08 16:25:42', 'Transfered LKR  1000.00 to account user2@pinbank.live<br> from account user1@pinbank.live. <br>: Payment for gift pack', 'PRA', 1000, 101000, 199600000004, 1),
+(663, 'Receive', '2020-10-08 16:35:32', 'Received LKR  150.00 from account user2@pinbank.live<br> to account user1@pinbank.live. <br>: Discount: Payment for gift pack', 'PRA', 150, 92650, 199600000004, 0),
+(664, 'Send', '2020-10-08 16:35:32', 'Transfered LKR  150.00 to account user1@pinbank.live<br> from account user2@pinbank.live. <br>: Discount: Payment for gift pack', 'PRA', 150, 92650, 199600000005, 1),
+(665, 'Receive', '2020-10-08 17:07:00', 'Received LKR  500.00 from account user3@pinbank.live<br> to account user1@pinbank.live. <br>: Charity', 'PRA', 500, 93150, 199600000004, 0),
+(666, 'Send', '2020-10-08 17:07:00', 'Transfered LKR  500.00 to account user1@pinbank.live<br> from account user3@pinbank.live. <br>: Charity', 'PRA', 500, 93150, 199600000006, 1),
+(667, 'Receive', '2020-10-09 16:32:05', 'Received LKR  100.00 from account user3@pinbank.live<br> to account user2@pinbank.live. <br>: Travel fee', 'PRA', 100, 100950, 199600000005, 0),
+(668, 'Send', '2020-10-09 16:32:05', 'Transfered LKR  100.00 to account user2@pinbank.live<br> from account user3@pinbank.live. <br>: Travel fee', 'PRA', 100, 100950, 199600000006, 1),
+(669, 'Receive', '2020-10-09 16:32:31', 'Received LKR  100.00 from account user3@pinbank.live<br> to account user1@pinbank.live. <br>: For reload', 'PRA', 100, 93250, 199600000004, 0),
+(670, 'Send', '2020-10-09 16:32:31', 'Transfered LKR  100.00 to account user1@pinbank.live<br> from account user3@pinbank.live. <br>: For reload', 'PRA', 100, 93250, 199600000006, 1),
+(671, 'Receive', '2020-10-09 16:45:04', 'Received LKR  100.00 from card 1996780990777286<br> to card 1996615633264053. <br>: Need for the subs.', 'VC2', 100, 1600, 199600000004, 0),
+(672, 'Send', '2020-10-09 16:45:04', 'Transfered LKR  100.00 to card 1996615633264053<br> from card 1996780990777286. <br>: Need for the subs.', 'VC1', 100, 4900, 199600000004, 1),
+(673, 'Receive', '2020-10-09 16:45:53', 'Received LKR  2000.00 from account user1@pinbank.live<br> to account user2@pinbank.live. <br>: For tuition fee', 'PRA', 2000, 102950, 199600000005, 0),
+(674, 'Send', '2020-10-09 16:45:53', 'Transfered LKR  2000.00 to account user2@pinbank.live<br> from account user1@pinbank.live. <br>: For tuition fee', 'PRA', 2000, 102950, 199600000004, 1),
+(675, 'Receive', '2020-10-09 17:04:20', 'Received LKR 3000.00 from account 199600000005<br> to account 1996166018471138. <br>: Reload for eBay payments', '', 3000, 3000, 199600000005, 0),
+(676, 'Send', '2020-10-09 17:04:20', 'Transfered LKR 3000.00 to account 1996166018471138<br> from account 199600000005. <br>: Reload for eBay payments', '', 3000, 99950, 199600000005, 1),
+(677, 'Receive', '2020-10-09 17:07:35', 'Received LKR  250.00 from account user2@pinbank.live<br> to account user1@pinbank.live. <br>: Grocery ', 'PRA', 250, 91500, 199600000004, 1),
+(678, 'Send', '2020-10-09 17:07:35', 'Transfered LKR  250.00 to account user1@pinbank.live<br> from account user2@pinbank.live. <br>: Grocery ', 'PRA', 250, 91500, 199600000005, 1);
 
 -- --------------------------------------------------------
 
@@ -495,7 +572,7 @@ CREATE TABLE `tbluserdetails` (
   `country` varchar(256) NOT NULL,
   `userStatus` varchar(50) NOT NULL,
   `userType` varchar(50) NOT NULL,
-  `transactionLimit` int(20) DEFAULT 10000
+  `transactionLimit` int(20) NOT NULL DEFAULT '10000'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -537,9 +614,13 @@ CREATE TABLE `tblvirtualcard` (
 
 INSERT INTO `tblvirtualcard` (`vId`, `vCardNumber`, `vExpireDate`, `vCSV`, `vCardName`, `vCardBalance`, `vCardOrder`, `vAccountNumber`) VALUES
 (98, 1996104521201288, '2025-04-27', 490, 'Skrill', 110, 'VC3', 199600000000),
+(105, 1996166018471138, '2025-10-07', 459, 'eBay Payments', 3000, 'VC1', 199600000005),
 (99, 1996285133961924, '2025-05-15', 300, 'Neteller', 510, 'VC1', 199600000001),
-(79, 1996481243502433, '2025-04-18', 715, 'PayPal - Don\'t Del', 2053, 'VC3', 199600000000),
-(49, 1996501047080921, '2024-12-15', 959, 'Neteller - Don\'t Del', 430.5, 'VC3', 199600000000);
+(79, 1996481243502433, '2025-04-18', 715, 'PayPal - Don\'t Del', 2023, 'VC3', 199600000000),
+(49, 1996501047080921, '2024-12-15', 959, 'Neteller - Don\'t Del', 490.5, 'VC3', 199600000000),
+(104, 1996615633264053, '2025-10-07', 264, 'Netflix Payments', 1600, 'VC2', 199600000004),
+(100, 1996649711701750, '2025-10-07', 568, 'Test Card', 0, 'VC2', 199600000001),
+(103, 1996780990777286, '2025-10-07', 542, 'eBay Payments', 4900, 'VC1', 199600000004);
 
 --
 -- Indexes for dumped tables
@@ -557,13 +638,15 @@ ALTER TABLE `tblaccount`
 -- Indexes for table `tbliptracking`
 --
 ALTER TABLE `tbliptracking`
-  ADD PRIMARY KEY (`trID`);
+  ADD PRIMARY KEY (`trID`),
+  ADD KEY `trAccountNumber` (`trAccountNumber`);
 
 --
 -- Indexes for table `tblmessage`
 --
 ALTER TABLE `tblmessage`
-  ADD PRIMARY KEY (`mId`);
+  ADD PRIMARY KEY (`mId`),
+  ADD KEY `email` (`email`);
 
 --
 -- Indexes for table `tbltransactions`
@@ -596,37 +679,37 @@ ALTER TABLE `tblvirtualcard`
 -- AUTO_INCREMENT for table `tblaccount`
 --
 ALTER TABLE `tblaccount`
-  MODIFY `aId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=578;
+  MODIFY `aId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `tbliptracking`
 --
 ALTER TABLE `tbliptracking`
-  MODIFY `trID` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `trID` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 
 --
 -- AUTO_INCREMENT for table `tblmessage`
 --
 ALTER TABLE `tblmessage`
-  MODIFY `mId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `mId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 
 --
 -- AUTO_INCREMENT for table `tbltransactions`
 --
 ALTER TABLE `tbltransactions`
-  MODIFY `tId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=636;
+  MODIFY `tId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=679;
 
 --
 -- AUTO_INCREMENT for table `tbluserdetails`
 --
 ALTER TABLE `tbluserdetails`
-  MODIFY `uId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `uId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- AUTO_INCREMENT for table `tblvirtualcard`
 --
 ALTER TABLE `tblvirtualcard`
-  MODIFY `vId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `vId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- Constraints for dumped tables
@@ -637,6 +720,18 @@ ALTER TABLE `tblvirtualcard`
 --
 ALTER TABLE `tblaccount`
   ADD CONSTRAINT `tblaccount_ibfk_1` FOREIGN KEY (`aUserEmail`) REFERENCES `tbluserdetails` (`email`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbliptracking`
+--
+ALTER TABLE `tbliptracking`
+  ADD CONSTRAINT `tbliptracking_ibfk_1` FOREIGN KEY (`trAccountNumber`) REFERENCES `tblaccount` (`accountNumber`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblmessage`
+--
+ALTER TABLE `tblmessage`
+  ADD CONSTRAINT `tblmessage_ibfk_1` FOREIGN KEY (`email`) REFERENCES `tbluserdetails` (`email`);
 
 --
 -- Constraints for table `tbltransactions`

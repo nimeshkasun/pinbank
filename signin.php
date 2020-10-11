@@ -8,8 +8,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 	<link rel="stylesheet" href="./css/styleloginreg.css">
-
-
 </head>
 <body>
 	<?php
@@ -149,16 +147,11 @@
 		<div class="inputGroup inputGroup3">
 			<button id="login" name="signin_button">Sign In</button>
 		</div>	
-
-		
 		<br>
 		<a href="./signup.php">Create an account</a>
 		<div style="text-align: right;">
 			<a href="./resetpass.php">Forgot password?</a></div>
-
-
 		</form>
-
 
 		<!-- partial -->
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
