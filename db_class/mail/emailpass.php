@@ -7,7 +7,8 @@
 	$mail->Username = "support@pinbank.live";
 	$Username = "support@pinbank.live";
 	
-	//Password to use for SMTP authentication
+	//Password to use for SMTP authentication 
+	//$mail->Password = "lfdpavdzkgkrxzzw";
 	$mail->Password = "Pin@2020";
 //Dont change --end
 
