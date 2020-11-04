@@ -122,13 +122,14 @@ try{
 		$email=mysqli_real_escape_string($conn,$_POST['signin_email']);
 		$password=mysqli_real_escape_string($conn,$_POST['signin_password']);
 
-		$result = $conn->query("SELECT fName, lName, email, password, userStatus, userType FROM tbluserdetails WHERE email='$email'");
+		$result = $conn->query("SELECT fName, lName, email, password, phoneNumber, userStatus, userType FROM tbluserdetails WHERE email='$email'");
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
 				$firstnamesaved = $row['fName']; 
 				$lastnamesaved = $row['lName'];  
 				$emailsaved = $row['email'];  
-				$passwordsaved = $row['password'];  
+				$passwordsaved = $row['password']; 
+				$phonesaved = $row['phoneNumber']; 
 				$userStatussaved = $row['userStatus']; 
 				$userTypesaved = $row['userType'];   
 			}
@@ -178,7 +179,7 @@ if ($result->num_rows > 0) {
 					$noIpTracking = "true";
 				}
 
-				function loginCheck($ip, $region, $country, $location,$accountNumber, $conn, $firstnamesaved, $lastnamesaved, $emailsaved, $userStatussaved, $userTypesaved, $password){
+				function loginCheck($ip, $region, $country, $location,$accountNumber, $conn, $firstnamesaved, $lastnamesaved, $emailsaved, $userStatussaved, $userTypesaved, $password, $phonesaved){
 					/*echo $ip, $region, $country, $location, $accountNumber, $userTypesaved;*/
 					$nowDate = date("Y-m-d H:i:s");
 					$sql = "INSERT INTO tbliptracking(trIp, trRegion, trCountry, trLocation, trTime, trAccountNumber) VALUES ('$ip', '$region', '$country', '$location','$nowDate', '$accountNumber')";
@@ -197,6 +198,7 @@ if ($result->num_rows > 0) {
 					$_SESSION["accountNumber"] = $accountNumber;
 					$_SESSION["accountCurrency"] = "LKR";
 					$_SESSION["lockCheck"] = $password;
+					$_SESSION["phonesaved"] = $phonesaved;
 
 					$_SESSION["loggedIn"] = "loggedIn";
 
@@ -287,13 +289,13 @@ if ($result->num_rows > 0) {
 
 				if($trCountry == $country || $noIpTracking == "true"){
 					if($trRegion == $region || $noIpTracking == "true"){
-						loginCheck($ip, $region, $country, $location, $accountNumber, $conn, $firstnamesaved, $lastnamesaved, $emailsaved, $userStatussaved, $userTypesaved, $password);
+						loginCheck($ip, $region, $country, $location, $accountNumber, $conn, $firstnamesaved, $lastnamesaved, $emailsaved, $userStatussaved, $userTypesaved, $password, $phonesaved);
 						
 					}else{
 						if($diff >= 8){
-							loginCheck($ip, $region, $country, $location, $accountNumber, $conn, $firstnamesaved, $lastnamesaved, $emailsaved, $userStatussaved, $userTypesaved, $password);
+							loginCheck($ip, $region, $country, $location, $accountNumber, $conn, $firstnamesaved, $lastnamesaved, $emailsaved, $userStatussaved, $userTypesaved, $password, $phonesaved);
 						}else{
-							loginCheck($ip, $region, $country, $location, $accountNumber, $conn, $firstnamesaved, $lastnamesaved, $emailsaved, $userStatussaved, $userTypesaved, $password);
+							loginCheck($ip, $region, $country, $location, $accountNumber, $conn, $firstnamesaved, $lastnamesaved, $emailsaved, $userStatussaved, $userTypesaved, $password, $phonesaved);
 							$update = "UPDATE tbluserdetails SET userStatus='Blocked' WHERE email='$email'";
 							if(mysqli_query($conn,$update)){
 							}
@@ -302,9 +304,9 @@ if ($result->num_rows > 0) {
 					}
 				}else{
 					if($diff >= 10){
-						loginCheck($ip, $region, $country, $location, $accountNumber, $conn, $firstnamesaved, $lastnamesaved, $emailsaved, $userStatussaved, $userTypesaved, $password);
+						loginCheck($ip, $region, $country, $location, $accountNumber, $conn, $firstnamesaved, $lastnamesaved, $emailsaved, $userStatussaved, $userTypesaved, $password, $phonesaved);
 					}else{
-						loginCheck($ip, $region, $country, $location, $accountNumber, $conn, $firstnamesaved, $lastnamesaved, $emailsaved, $userStatussaved, $userTypesaved, $password);
+						loginCheck($ip, $region, $country, $location, $accountNumber, $conn, $firstnamesaved, $lastnamesaved, $emailsaved, $userStatussaved, $userTypesaved, $password, $phonesaved);
 						$update = "UPDATE tbluserdetails SET userStatus='Blocked' WHERE email='$email'";
 						if(mysqli_query($conn,$update)){
 						}
@@ -331,10 +333,11 @@ if ($result->num_rows > 0) {
 	if(isset($_POST['resetpass_button']))
 	{
 		$email=mysqli_real_escape_string($conn,$_POST['resetpass_email']);
-		$result = $conn->query("SELECT password FROM tbluserdetails WHERE email='$email'");
+		$result = $conn->query("SELECT password, phoneNumber FROM tbluserdetails WHERE email='$email'");
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
 				$passwordsaved = $row['password']; 
+				$phonesaved = $row['phoneNumber']; 
 			}
 		}
 		if(isset($passwordsaved)){
@@ -344,9 +347,13 @@ if ($result->num_rows > 0) {
 				$valcode .= mt_rand(0, 9);
 			}
 			require_once './mail/valcode.php';
+			$_SESSION["phonesaved"] = $phonesaved;
+			$smsMessage = "Pin Bank Password Reset Validation Code: ".$valcode;
+			require_once '../sms/send.php';
+
 			$_SESSION["codevalidation"] = $valcode;
 			$_SESSION["email"] = $email;
-			header('location: ../resetcode.php');
+			//header('location: ../resetcode.php');
 		}else{
 			header('location: ../resetpassnow.php');
 		}
