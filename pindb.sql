@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 11, 2020 at 07:37 AM
+-- Generation Time: Nov 04, 2020 at 07:24 PM
 -- Server version: 5.7.31-cll-lve
 -- PHP Version: 7.3.6
 
@@ -41,16 +41,19 @@ CREATE TABLE `tblaccount` (
 --
 
 INSERT INTO `tblaccount` (`aId`, `accountNumber`, `accountBalance`, `aCurrency`, `aUserEmail`) VALUES
-(1, 199600000000, 316602, 'LKR', 'nimesh.ekanayaka7@gmail.com'),
-(6, 199600000001, 44804.4, 'LKR', 'lahiruthivankara@gmail.com'),
+(1, 199600000000, 316582, 'LKR', 'nimesh.ekanayaka7@gmail.com'),
+(6, 199600000001, 44814.4, 'LKR', 'lahiruthivankara@gmail.com'),
 (32, 199600000002, 0, 'LKR', 'nimesh@edvicon.org'),
 (33, 199600000003, 0, 'LKR', 'bhanuka@gmail.com'),
-(53, 199600000004, 91500, 'LKR', 'user1@pinbank.live'),
-(54, 199600000005, 99700, 'LKR', 'user2@pinbank.live'),
-(55, 199600000006, 99300, 'LKR', 'user3@pinbank.live'),
+(53, 199600000004, 94300, 'LKR', 'user1@pinbank.live'),
+(54, 199600000005, 96650, 'LKR', 'user2@pinbank.live'),
+(55, 199600000006, 99350, 'LKR', 'user3@pinbank.live'),
 (56, 199600000007, 0, 'LKR', 'admin@pinbank.live'),
 (57, 199600000008, 0, 'LKR', 'staff@pinbank.live'),
-(58, 199600000009, 0, 'LKR', 'support@pinbank.live');
+(58, 199600000009, 0, 'LKR', 'support@pinbank.live'),
+(59, 199600000010, 0, 'LKR', 'demo@demo.com'),
+(60, 199600000011, 0, 'LKR', 'rumeshadesilva@gmail.com'),
+(61, 199600000012, 0, 'LKR', 'diranasinghe9@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -213,7 +216,26 @@ INSERT INTO `tbliptracking` (`trID`, `trIp`, `trRegion`, `trCountry`, `trLocatio
 (149, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-10 14:36:56', 199600000000),
 (150, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-10 14:40:26', 199600000000),
 (151, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-10 14:56:27', 199600000000),
-(152, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-10 15:05:17', 199600000000);
+(152, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-10 15:05:17', 199600000000),
+(153, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-11 09:04:17', 199600000000),
+(154, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-18 05:25:05', 199600000000),
+(155, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-18 05:30:47', 199600000000),
+(156, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-18 05:32:11', 199600000000),
+(157, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-18 05:42:54', 199600000000),
+(158, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-18 05:49:17', 199600000000),
+(159, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-18 05:55:22', 199600000000),
+(160, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-18 06:18:49', 199600000000),
+(161, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-18 06:47:22', 199600000000),
+(162, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-18 18:22:05', 199600000000),
+(163, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-19 02:33:03', 199600000000),
+(164, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-23 16:16:51', 199600000000),
+(165, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-23 16:17:45', 199600000000),
+(166, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-23 16:18:38', 199600000000),
+(167, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-24 17:22:50', 199600000000),
+(168, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-24 17:24:22', 199600000000),
+(169, '199.161.27.251', 'Virginia', 'US', '38.8318,-77.2888', '2020-10-26 20:08:30', 199600000000),
+(170, '182.161.27.251', 'Western', 'LK', '6.9355,79.8487', '2020-11-04 19:19:51', 199600000000),
+(171, '182.161.27.251', 'Western', 'LK', '6.9355,79.8487', '2020-11-04 19:20:55', 199600000000);
 
 -- --------------------------------------------------------
 
@@ -547,8 +569,33 @@ INSERT INTO `tbltransactions` (`tId`, `tType`, `tDate`, `tDescription`, `tAccoun
 (674, 'Send', '2020-10-09 16:45:53', 'Transfered LKR  2000.00 to account user2@pinbank.live<br> from account user1@pinbank.live. <br>: For tuition fee', 'PRA', 2000, 102950, 199600000004, 1),
 (675, 'Receive', '2020-10-09 17:04:20', 'Received LKR 3000.00 from account 199600000005<br> to account 1996166018471138. <br>: Reload for eBay payments', '', 3000, 3000, 199600000005, 0),
 (676, 'Send', '2020-10-09 17:04:20', 'Transfered LKR 3000.00 to account 1996166018471138<br> from account 199600000005. <br>: Reload for eBay payments', '', 3000, 99950, 199600000005, 1),
-(677, 'Receive', '2020-10-09 17:07:35', 'Received LKR  250.00 from account user2@pinbank.live<br> to account user1@pinbank.live. <br>: Grocery ', 'PRA', 250, 91500, 199600000004, 1),
-(678, 'Send', '2020-10-09 17:07:35', 'Transfered LKR  250.00 to account user1@pinbank.live<br> from account user2@pinbank.live. <br>: Grocery ', 'PRA', 250, 91500, 199600000005, 1);
+(677, 'Receive', '2020-10-09 17:07:35', 'Received LKR  250.00 from account user2@pinbank.live<br> to account user1@pinbank.live. <br>: Grocery ', 'PRA', 250, 91500, 199600000004, 0),
+(678, 'Send', '2020-10-09 17:07:35', 'Transfered LKR  250.00 to account user1@pinbank.live<br> from account user2@pinbank.live. <br>: Grocery ', 'PRA', 250, 91500, 199600000005, 1),
+(679, 'Receive', '2020-10-18 05:44:22', 'Received LKR  100.00 from account user3@pinbank.live<br> to account user2@pinbank.live. <br>: For reload.', 'PRA', 100, 99800, 199600000005, 0),
+(680, 'Send', '2020-10-18 05:44:22', 'Transfered LKR  100.00 to account user2@pinbank.live<br> from account user3@pinbank.live. <br>: For reload.', 'PRA', 100, 99800, 199600000006, 1),
+(681, 'Receive', '2020-10-18 05:45:20', 'Received LKR  2500.00 from account user3@pinbank.live<br> to account user1@pinbank.live. <br>: For loan.', 'PRA', 2500, 94000, 199600000004, 0),
+(682, 'Send', '2020-10-18 05:45:20', 'Transfered LKR  2500.00 to account user1@pinbank.live<br> from account user3@pinbank.live. <br>: For loan.', 'PRA', 2500, 94000, 199600000006, 1),
+(683, 'Receive', '2020-10-18 05:50:20', 'Received LKR  3000.00 from account user2@pinbank.live<br> to account user1@pinbank.live. <br>: For loan.', 'PRA', 3000, 97000, 199600000004, 0),
+(684, 'Send', '2020-10-18 05:50:20', 'Transfered LKR  3000.00 to account user1@pinbank.live<br> from account user2@pinbank.live. <br>: For loan.', 'PRA', 3000, 97000, 199600000005, 1),
+(685, 'Receive', '2020-10-18 05:53:17', 'Received LKR  1000.00 from card 1996166018471138<br> to card 1996444565082747. <br>: Loan', 'VC2', 1000, 1000, 199600000005, 0),
+(686, 'Send', '2020-10-18 05:53:17', 'Transfered LKR  1000.00 to card 1996444565082747<br> from card 1996166018471138. <br>: Loan', 'VC1', 1000, 2000, 199600000005, 1),
+(687, 'Receive', '2020-10-18 05:57:05', 'Received LKR  3000.00 from account user1@pinbank.live<br> to account user3@pinbank.live. <br>: Loan', 'PRA', 3000, 99700, 199600000006, 0),
+(688, 'Send', '2020-10-18 05:57:05', 'Transfered LKR  3000.00 to account user3@pinbank.live<br> from account user1@pinbank.live. <br>: Loan', 'PRA', 3000, 99700, 199600000004, 1),
+(695, 'Receive', '2020-10-23 16:17:20', 'Received LKR  100.00 from account user1@pinbank.live<br> to account user2@pinbank.live. <br>: Charity', 'PRA', 100, 96900, 199600000005, 0),
+(696, 'Send', '2020-10-23 16:17:20', 'Transfered LKR  100.00 to account user2@pinbank.live<br> from account user1@pinbank.live. <br>: Charity', 'PRA', 100, 96900, 199600000004, 1),
+(697, 'Receive', '2020-10-23 16:18:02', 'Received LKR  500.00 from account user3@pinbank.live<br> to account user1@pinbank.live. <br>: Payment for gift pack', 'PRA', 500, 94400, 199600000004, 0),
+(698, 'Send', '2020-10-23 16:18:02', 'Transfered LKR  500.00 to account user1@pinbank.live<br> from account user3@pinbank.live. <br>: Payment for gift pack', 'PRA', 500, 94400, 199600000006, 1),
+(699, 'Receive', '2020-10-23 16:18:59', 'Received LKR  50.00 from account user2@pinbank.live<br> to account user3@pinbank.live. <br>: For reload', 'PRA', 50, 99250, 199600000006, 1),
+(700, 'Send', '2020-10-23 16:18:59', 'Transfered LKR  50.00 to account user3@pinbank.live<br> from account user2@pinbank.live. <br>: For reload', 'PRA', 50, 99250, 199600000005, 1),
+(701, 'Receive', '2020-10-24 17:23:19', 'Received LKR  250.00 from account user2@pinbank.live<br> to account user1@pinbank.live. <br>: For birthday party', 'PRA', 250, 94650, 199600000004, 0),
+(702, 'Send', '2020-10-24 17:23:19', 'Transfered LKR  250.00 to account user1@pinbank.live<br> from account user2@pinbank.live. <br>: For birthday party', 'PRA', 250, 94650, 199600000005, 1),
+(703, 'Receive', '2020-10-24 17:24:06', 'Received LKR  50.00 from account user2@pinbank.live<br> to account user3@pinbank.live. <br>: Borrowed money', 'PRA', 50, 99300, 199600000006, 1),
+(704, 'Send', '2020-10-24 17:24:06', 'Transfered LKR  50.00 to account user3@pinbank.live<br> from account user2@pinbank.live. <br>: Borrowed money', 'PRA', 50, 99300, 199600000005, 1);
+INSERT INTO `tbltransactions` (`tId`, `tType`, `tDate`, `tDescription`, `tAccountType`, `tAmount`, `tBalance`, `tAccountNumber`, `notStatus`) VALUES
+(707, 'Receive', '2020-11-04 19:21:05', 'Received LKR  100.00 from account user1@pinbank.live<br> to account user2@pinbank.live. <br>: For reload', 'PRA', 100, 96650, 199600000005, 1),
+(708, 'Send', '2020-11-04 19:21:05', 'Transfered LKR  100.00 to account user2@pinbank.live<br> from account user1@pinbank.live. <br>: For reload', 'PRA', 100, 96650, 199600000004, 1),
+(709, 'Receive', '2020-11-04 19:23:06', 'Received LKR  50.00 from account user1@pinbank.live<br> to account user3@pinbank.live. <br>: Travel fee', 'PRA', 50, 99350, 199600000006, 1),
+(710, 'Send', '2020-11-04 19:23:06', 'Transfered LKR  50.00 to account user3@pinbank.live<br> from account user1@pinbank.live. <br>: Travel fee', 'PRA', 50, 99350, 199600000004, 1);
 
 -- --------------------------------------------------------
 
@@ -580,15 +627,18 @@ CREATE TABLE `tbluserdetails` (
 --
 
 INSERT INTO `tbluserdetails` (`uId`, `email`, `fName`, `lName`, `password`, `phoneNumber`, `stAddress`, `addLine1`, `addLine2`, `city`, `stateProvince`, `postalCode`, `country`, `userStatus`, `userType`, `transactionLimit`) VALUES
-(123, 'admin@pinbank.live', 'Nimesh', 'Admin', '$2y$10$baNs4sdFn.V5gX1ANUSLaOFQYo9A9T2zW2VQmKCcCMd1L1D4pEiA2', 775895402, 'No 101', 'Samagi Mawatha', 'Borupana', 'Ratmalana', 'Western Province', '10390', 'SriLanka', 'Active', 'staAdmin', 10000),
+(123, 'admin@pinbank.live', 'Nimesh', 'Admin', '$2y$10$baNs4sdFn.V5gX1ANUSLaOFQYo9A9T2zW2VQmKCcCMd1L1D4pEiA2', 776777668, 'No 101', 'Samagi Mawatha', 'Borupana', 'Ratmalana', 'Western Province', '10390', 'SriLanka', 'Active', 'staAdmin', 10000),
 (66, 'bhanuka@gmail.com', 'Bhanuka', 'Senevirathne', '$2y$10$zNN.G4qq50OQdu70MWT6X.xk7j2yK8rS35fR8o155UM9CNRcfkXq.', 117878589, 'New Scheme, Track 05, Gomarankalla', 'Palace Road', '', 'Kandy', 'Central Province', '50390', 'SriLanka', 'Active', 'custAdv', 10000),
+(128, 'demo@demo.com', 'Thanh', '76570557', '$2y$10$QlOGCkdyb1gO2lIm6/qtluMcBgeonDjjo0I6EFbubYLIM4ZQB5mze', 765705577, 'Quan nAM', 'ahihi', 'ahihi', 'quang nam', 'Ahihi', '511000', 'SriLanka', 'Active', 'custAdv', 10000),
+(130, 'diranasinghe9@gmail.com', 'di', 'ranasinghe', '$2y$10$MEVKjDsv.BDpmD7kqmnYu.m5j/32.ymRyBIVBll0DWjoVyahpNmKa', 717777777, '221B', 'baker  street', 'Velegoda ', 'Matara', 'Southern Province', '81000', 'SriLanka', 'Active', 'custAdv', 10000),
 (7, 'lahiruthivankara@gmail.com', 'Dimuthu', 'Chamod', '$2y$10$AZHoRRfujfNtCZm3476mZOFQQCZhQ53oPBWgaDvTwTYLA8tTAT5Ra', 718810576, 'New Scheme, Track 05', 'Gomarankalla', '', 'Galenbindunuwewa', 'North Central Province', '50390', 'SriLanka', 'Active', 'custMed', 10000),
-(1, 'nimesh.ekanayaka7@gmail.com', 'Nimesh Kasun', 'Ekanayake', '$2y$10$/HfTpMG59x3M.cX0ZU2QguE17fd04ThxCeJaMdBhS1LW.2XjYIwqq', 718810574, 'New Scheme, Track 05', 'Gomarankalla', 'Galenbindunuwewa', 'Anuradhapura', 'North Central Province', '10000', 'SriLanka', 'Active', 'custAdv', 10000),
+(1, 'nimesh.ekanayaka7@gmail.com', 'Nimesh Kasun', 'Ekanayake', '$2y$10$fyBwQZbCXuo4hWFzaDCq1e1fyjLWbW.ujc3EbO09xBH0nW4XZDPee', 718810574, 'New Scheme, Track 05', 'Gomarankalla', 'Galenbindunuwewa', 'Anuradhapura', 'North Central Province', '10000', 'SriLanka', 'Active', 'custAdv', 10000),
 (65, 'nimesh@edvicon.org', 'Nimesh', 'Admin', '$2y$10$V86EvxeSffJRlZHy8k7vuuOAX0DkpkSnpd5iGBSwQ8pORRHoV49AC', 775895400, 'New Scheme, Track 05', 'Gomarankalla', '', 'Galenbindunuwewa', 'North Central Province', '50390', 'SriLanka', 'Active', 'staAdmin', 10000),
+(129, 'rumeshadesilva@gmail.com', 'Rumesha', 'De Silva', '$2y$10$g5xMzpjULopGqIeKOXD/Rekf8nJZaN80N3DP5A52wALNwJCXikaR.', 772382736, '11/06', 'Dampe', 'Madapatha', 'Colombo', 'Western', '10306', 'SriLanka', 'Active', 'custAdv', 10000),
 (125, 'staff@pinbank.live', 'Nimesh', 'Staff', '$2y$10$gaiZ16alkss.zMBBMBBWQOnKe3FFcJ2ei8EYRBzZVvfrh901V3G2S', 775895403, 'No 101', 'Samagi Mawatha', 'Borupana', 'Ratmalana', 'Western Province', '10390', 'SriLanka', 'Active', 'staLocal', 10000),
 (126, 'support@pinbank.live', 'Nimesh', 'Support', '$2y$10$3UxmpCeap2P00YSUFuQTuuEOmJ0X58noks8s57nmdbpFjWqK2/10W', 775895404, 'No 101', 'Samagi Mawatha', 'Borupana', 'Ratmalana', 'Western Province', '10390', 'SriLanka', 'Active', 'staSupp', 10000),
 (121, 'user1@pinbank.live', 'Alain', 'Parker', '$2y$10$6qGDFYDIIH8wHZKCWCc0yO9w5eykTFIRcTxv2FlQXqJNBCzApiZBO', 718810575, 'New Scheme', 'Track 05', 'Gomarankalla', 'Galenbindunuwewa', 'North Central Province', '50390', 'SriLanka', 'Active', 'custAdv', 10000),
-(122, 'user2@pinbank.live', 'John', 'Perera', '$2y$10$S4F2ZtMA0HIkNSPLZ6rize.jjiUZ5glp2XkCyReCyWY4of2AOhIVa', 768552521, '1/30', 'Kotelawala Street', 'Kandy Road', 'Horana', 'Western Province', '10390', 'SriLanka', 'Active', 'custMed', 10000),
+(122, 'user2@pinbank.live', 'John', 'Perera', '$2y$10$S4F2ZtMA0HIkNSPLZ6rize.jjiUZ5glp2XkCyReCyWY4of2AOhIVa', 775895402, '1/30', 'Kotelawala Street', 'Kandy Road', 'Horana', 'Western Province', '10390', 'SriLanka', 'Active', 'custMed', 10000),
 (127, 'user3@pinbank.live', 'Stefan', 'Salvatore', '$2y$10$TzwdorT/B.iamJsSbV5VoOOe3RUE3vJXa5mid9SGtzyIZTc.x.p/K', 715116363, 'PO 13', 'University Road', 'Sooriyawewa', 'Ambilipitiya', 'Southern Province', '50390', 'SriLanka', 'Active', 'custEas', 10000);
 
 -- --------------------------------------------------------
@@ -614,11 +664,12 @@ CREATE TABLE `tblvirtualcard` (
 
 INSERT INTO `tblvirtualcard` (`vId`, `vCardNumber`, `vExpireDate`, `vCSV`, `vCardName`, `vCardBalance`, `vCardOrder`, `vAccountNumber`) VALUES
 (98, 1996104521201288, '2025-04-27', 490, 'Skrill', 110, 'VC3', 199600000000),
-(105, 1996166018471138, '2025-10-07', 459, 'eBay Payments', 3000, 'VC1', 199600000005),
+(105, 1996166018471138, '2025-10-07', 459, 'eBay Payments', 2000, 'VC1', 199600000005),
 (99, 1996285133961924, '2025-05-15', 300, 'Neteller', 510, 'VC1', 199600000001),
-(79, 1996481243502433, '2025-04-18', 715, 'PayPal - Don\'t Del', 2023, 'VC3', 199600000000),
-(49, 1996501047080921, '2024-12-15', 959, 'Neteller - Don\'t Del', 490.5, 'VC3', 199600000000),
-(104, 1996615633264053, '2025-10-07', 264, 'Netflix Payments', 1600, 'VC2', 199600000004),
+(106, 1996444565082747, '2025-10-17', 804, 'RM Visa', 1000, 'VC2', 199600000005),
+(79, 1996481243502433, '2025-04-18', 715, 'PayPal - Don\'t Del', 2013, 'VC3', 199600000000),
+(49, 1996501047080921, '2024-12-15', 959, 'Neteller - Don\'t Del', 510.5, 'VC3', 199600000000),
+(104, 1996615633264053, '2025-10-07', 264, 'Netflix Payments', 1800, 'VC2', 199600000004),
 (100, 1996649711701750, '2025-10-07', 568, 'Test Card', 0, 'VC2', 199600000001),
 (103, 1996780990777286, '2025-10-07', 542, 'eBay Payments', 4900, 'VC1', 199600000004);
 
@@ -679,13 +730,13 @@ ALTER TABLE `tblvirtualcard`
 -- AUTO_INCREMENT for table `tblaccount`
 --
 ALTER TABLE `tblaccount`
-  MODIFY `aId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `aId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `tbliptracking`
 --
 ALTER TABLE `tbliptracking`
-  MODIFY `trID` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+  MODIFY `trID` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
 
 --
 -- AUTO_INCREMENT for table `tblmessage`
@@ -697,19 +748,19 @@ ALTER TABLE `tblmessage`
 -- AUTO_INCREMENT for table `tbltransactions`
 --
 ALTER TABLE `tbltransactions`
-  MODIFY `tId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=679;
+  MODIFY `tId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=711;
 
 --
 -- AUTO_INCREMENT for table `tbluserdetails`
 --
 ALTER TABLE `tbluserdetails`
-  MODIFY `uId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `uId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
 -- AUTO_INCREMENT for table `tblvirtualcard`
 --
 ALTER TABLE `tblvirtualcard`
-  MODIFY `vId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `vId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- Constraints for dumped tables
