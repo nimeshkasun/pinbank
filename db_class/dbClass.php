@@ -105,8 +105,8 @@ try{
 ////// IP Check
 
 		try{
-			//$ip = "182.161.27.251"; //Colombo, SL
-			$ip = "199.161.27.251"; //Virgenia, US
+			$ip = "182.161.27.251"; //Colombo, SL
+			//$ip = "199.161.27.251"; //Virgenia, US
 			//$ip = "65.49.22.66"; //California, US
 			
 			//$ip = $_SERVER['REMOTE_ADDR'];
@@ -258,6 +258,7 @@ if ($result->num_rows > 0) {
 					$_SESSION['accountStatus'] = "";
 					$_SESSION['accountLimits'] = "";
 					$_SESSION["userTypesavedCust"] = "";
+					$_SESSION["phoneNumbersavedCust"] = "";
 
 
 					$_SESSION['updateCust'] = "";
@@ -298,6 +299,9 @@ if ($result->num_rows > 0) {
 							loginCheck($ip, $region, $country, $location, $accountNumber, $conn, $firstnamesaved, $lastnamesaved, $emailsaved, $userStatussaved, $userTypesaved, $password, $phonesaved);
 							$update = "UPDATE tbluserdetails SET userStatus='Blocked' WHERE email='$email'";
 							if(mysqli_query($conn,$update)){
+								$_SESSION["phonesaved"] = $phonesaved;
+								$smsMessage = "Pin Bank Alert! You account has been temporarily on hold. Please contact the bank.";
+								require_once '../sms/send.php';
 							}
 							header('location: ../signin.php'); //block
 						}
@@ -310,6 +314,9 @@ if ($result->num_rows > 0) {
 						$update = "UPDATE tbluserdetails SET userStatus='Blocked' WHERE email='$email'";
 						if(mysqli_query($conn,$update)){
 						}
+							$_SESSION["phonesaved"] = $phonesaved;
+							$smsMessage = "Pin Bank Alert! You account has been temporarily on hold. Please contact the bank.";
+							require_once '../sms/send.php';
 							header('location: ../signin.php'); //block
 						}
 						

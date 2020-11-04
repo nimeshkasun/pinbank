@@ -139,6 +139,23 @@ try{
 						$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Send', '$timeStamp', '$descriptionFrom', 'PRA', '$amount', '$newAccBalfrom', '$accountNumber')";
 						if(mysqli_query($conn,$insert)){
 							$_SESSION['fromAccTranSuccess'] = "fromAccTranSuccess";
+
+								$result = $conn->query("SELECT phoneNumber FROM tbluserdetails WHERE email='$email'");
+								if ($result->num_rows > 0) {
+									while($row = $result->fetch_assoc()) {
+										$phonesaved = $row['phoneNumber'];  
+									}
+								}
+								$result = $conn->query("SELECT phoneNumber FROM tbluserdetails WHERE email='$toEmail'");
+								if ($result->num_rows > 0) {
+									while($row = $result->fetch_assoc()) {
+										$phonesavedTo = $row['phoneNumber'];  
+									}
+								}
+								$smsMessage = "Pin Bank Debit! You account has been debited Rs.".$amount." for ".$description;
+								$smsMessage2 = "Pin Bank Credit! You account has been credited Rs.".$amount." for ".$description;
+								require_once '../sms/send.php';	
+
 							header('location: ./');
 						}else{
 							$_SESSION['fromAccTranFail'] = "fromAccTranFail";
@@ -709,16 +726,18 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 																									}
 																								}else{
 																								}
-																								$result = $conn->query("SELECT userType FROM tbluserdetails WHERE email='$aUserEmail'");
+																								$result = $conn->query("SELECT userType, phoneNumber FROM tbluserdetails WHERE email='$aUserEmail'");
 																								if ($result->num_rows > 0) {
 																									while($row = $result->fetch_assoc()) {
 																										$userTypesavedCust = $row['userType'];
+																										$phoneNumbersavedCust =  $row['phoneNumber'];
 																									}
 																								}else{
 																								}
 																								$_SESSION["emailsavedCust"] = $aUserEmail;
 																								$_SESSION['chatEmail'] = $aUserEmail;
 																								$_SESSION["userTypesavedCust"] = $userTypesavedCust;
+																								$_SESSION["phoneNumbersavedCust"] = $phoneNumbersavedCust;
 																								header('location: ./pra.php');
 																							}else if(isset($_POST['searchAccount'])){
 																								$_SESSION['accountNumberNoCust'] = mysqli_real_escape_string($conn, $_POST['searchAccount']);
@@ -726,23 +745,18 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 																							}else if(isset($_GET['searchAccount'])){
 																								$_SESSION['accountNumberCust'] = mysqli_real_escape_string($conn, $_GET['searchAccount']);
 																								$accountNumberCust = $_SESSION['accountNumberCust'];
-																								$result = $conn->query("SELECT aUserEmail FROM tblaccount WHERE accountNumber='$accountNumberCust'");
-																								if ($result->num_rows > 0) {
-																									while($row = $result->fetch_assoc()) {
-																										$aUserEmail = $row['aUserEmail'];
-																									}
-																								}else{
-																								}
-																								$result = $conn->query("SELECT userType FROM tbluserdetails WHERE email='$aUserEmail'");
+																								$result = $conn->query("SELECT userType, phoneNumber FROM tbluserdetails WHERE email='$aUserEmail'");
 																								if ($result->num_rows > 0) {
 																									while($row = $result->fetch_assoc()) {
 																										$userTypesavedCust = $row['userType'];
+																										$phoneNumbersavedCust = $row['phoneNumber'];
 																									}
 																								}else{
 																								}
 																								$_SESSION["emailsavedCust"] = $aUserEmail;
 																								$_SESSION['chatEmail'] = $aUserEmail;
 																								$_SESSION["userTypesavedCust"] = $userTypesavedCust;
+																								$_SESSION["phoneNumbersavedCust"] = $phoneNumbersavedCust;
 																								header('location: ./chat.php');
 																							}
 
@@ -750,6 +764,7 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 																							if(isset($_GET['execute'])){
 																								$_SESSION['accountNumberCust'] = "";
 																								$_SESSION['accountNumberNoCust'] = "";
+																								$_SESSION["userTypesavedCust"] = "";
 																								$_SESSION["userTypesavedCust"] = "";
 																							}
 //For Testing - end
@@ -776,12 +791,17 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 																									{
 																										$passedValue = $_POST['statusCheck'];
 																										$email = $_SESSION["emailsavedCust"];
+																										$phonesaved = $_SESSION["phoneNumbersavedCust"];
 																										if($passedValue== "Active"){
 																											$update = "UPDATE tbluserdetails SET userStatus='Active' WHERE email='$email'";
 																											if(mysqli_query($conn,$update)){
 																											}
 																											require_once '../db_class/mail/accountunblock.php';
 																											$_SESSION['accountStatus'] = "activated";
+
+																											$smsMessage = "Pin Bank Alert! You account has been activated.";
+																											require_once '../sms/send.php';	
+
 																											header('location: ./customer.php'); 
 																										}else{
 																											$update = "UPDATE tbluserdetails SET userStatus='Inactive' WHERE email='$email'";
@@ -789,6 +809,10 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 																											}
 																											require_once '../db_class/mail/accountblock.php';
 																											$_SESSION['accountStatus'] = "deactivated";
+
+																											$smsMessage = "Pin Bank Alert! You account has been de-activated. Please contact the bank.";
+																											require_once '../sms/send.php';
+
 																											header('location: ./customer.php'); 
 																										}
 																									}
@@ -819,12 +843,17 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 																											{
 																												$passedValue = $_POST['limitCheck'];
 																												$email = $_SESSION["emailsavedCust"];
+																												$phonesaved = $_SESSION["phoneNumbersavedCust"];
 																												if($passedValue== "Blocked"){
 																													$update = "UPDATE tbluserdetails SET userStatus='Blocked' WHERE email='$email'";
 																													if(mysqli_query($conn,$update)){
 																													}
 																													require_once '../db_class/mail/accountblock.php';
 																													$_SESSION['accountLimits'] = "blocked";
+
+																													$smsMessage = "Pin Bank Alert! You account is temporarily on hold. Please contact the bank.";
+																													require_once '../sms/send.php';	
+
 																													header('location: ./customer.php'); 
 																												}else{
 																													$update = "UPDATE tbluserdetails SET userStatus='Active' WHERE email='$email'";
@@ -832,6 +861,10 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 																													}
 																													require_once '../db_class/mail/accountunblock.php';
 																													$_SESSION['accountLimits'] = "unblocked";
+
+																													$smsMessage = "Pin Bank Alert! You account limitations have been removed.";
+																													require_once '../sms/send.php';
+
 																													header('location: ./customer.php'); 
 																												}
 																											}
@@ -862,11 +895,16 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 																													{
 																														$passedValue = $_POST['transactionLimit'];
 																														$email = $_SESSION["emailsavedCust"];
+																														$phonesaved = $_SESSION["phoneNumbersavedCust"];
 																														if($passedValue != ""){
 																															$update = "UPDATE tbluserdetails SET transactionLimit='$passedValue' WHERE email='$email'";
 																															if(mysqli_query($conn,$update)){
 																															}
 																															$_SESSION['tranLimits'] = "updated";
+
+																															$smsMessage = "Pin Bank Alert! You account transaction limit has been set to Rs.".$passedValue;
+																															require_once '../sms/send.php';
+
 																															header('location: ./customer.php'); 
 																														}else{
 																															$_SESSION['tranLimits'] = "updatefailed";

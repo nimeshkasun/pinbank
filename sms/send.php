@@ -1,6 +1,6 @@
 <?php
-		session_start();
-		$phonesaved = $_SESSION["phonesaved"];
+		
+		//$phonesaved = $_SESSION["phonesaved"];
 		//$phonesaved = '0718810575';
 		include("newsletterslk.class.php");
         $mysms=new Newsletterslk;
@@ -9,4 +9,8 @@
         $mysms->setSenderID('DEMO_SMS');// Initializing Sender ID Default Web SMS
         $mysms->msgType='sms';// Initializing Message Type
 		$mysms->SendMessage($phonesaved,$smsMessage);
+
+		if(isset($smsMessage2)){
+			$mysms->SendMessage($phonesavedTo,$smsMessage2);
+		}
 ?>

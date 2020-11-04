@@ -61,6 +61,7 @@ try{
 		$firstnamesaved = $_SESSION['firstnamesaved'];
 		$lastnamesaved = $_SESSION['lastnamesaved'];
 		$lockCheck = $_SESSION["lockCheck"];
+		$phonesaved = $_SESSION["phonesaved"];
 	}
 //Avoid Testing - end
 
@@ -145,6 +146,17 @@ try{
 							if(mysqli_query($conn,$insert)){
 								$_SESSION['fromAccTranSuccess'] = "fromAccTranSuccess";
 								$_SESSION['forceTransactionCount'] = "";
+
+								$result = $conn->query("SELECT phoneNumber FROM tbluserdetails WHERE email='$toEmail'");
+								if ($result->num_rows > 0) {
+									while($row = $result->fetch_assoc()) {
+										$phonesavedTo = $row['phoneNumber'];  
+									}
+								}
+								$smsMessage = "Pin Bank Debit! You account has been debited Rs.".$amount." for ".$description;
+								$smsMessage2 = "Pin Bank Credit! You account has been credited Rs.".$amount." for ".$description;
+								require_once '../sms/send.php';								
+
 								header('location: ./');
 							}else{
 								$_SESSION['fromAccTranFail'] = "fromAccTranFail";
