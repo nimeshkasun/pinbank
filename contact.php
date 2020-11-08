@@ -33,8 +33,9 @@
 	<!-- Newsletter section end -->
 	<!-- Footer section -->
 	<?php
-	require_once "src/footer.php";
+		require_once "src/footer.php";
 	?>
+
 	<!-- load for map -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
 	<script src="js/map.js"></script>
