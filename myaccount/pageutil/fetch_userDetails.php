@@ -212,7 +212,7 @@ if ($result->num_rows > 0) {
                                                     <span class="input-group-addon"><i class="icofont icofont-user"></i></span>
                                                     <select type="select" name="userMode"  style="width: 100%;" required>
                                                         <option value="custAdv">Advanced Mode</option>
-                                                        <option value="custMed">Medum Mode</option>
+                                                        <option value="custMed">Medium Mode</option>
                                                         <option value="custEas">Easy Mode</option>
                                                     </select>
                                                 </div>
