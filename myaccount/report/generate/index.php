@@ -144,9 +144,9 @@ if ($result->num_rows > 0) {
 			<tr bgcolor='#d4dcff'>
 			<td colspan="5"><font size="8">{$description}</font></td>
 			</tr>
-			EOD;
+			";
 		}else{
-			$tbl2_temp = <<<EOD
+			$tbl2_temp = "
 			<tr>
 			<td><font size='10'>{$row['tType']}</font></td>
 			<td><font size='10'>{$row['tDate']}</font></td>
