@@ -51,12 +51,12 @@
                     <span class="pcoded-mtext">Make a Payment</span>
                 </a>
             </li>
-            <!-- <li class="">
-                <a href="#">
-                    <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                    <span class="pcoded-mtext">Obtain a Loan</span>
+            <li class="">
+                <a href="./report/generate/">
+                    <span class="pcoded-micon"><i class="ti-files"></i></span>
+                    <span class="pcoded-mtext">Download Statement</span>
                 </a>
-            </li> -->
+            </li>
             <li class="">
                 <a href="#">
                     <span class="pcoded-micon"><i class="ti-infinite"></i></span>
