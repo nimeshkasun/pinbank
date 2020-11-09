@@ -52,7 +52,7 @@
                 </a>
             </li>
             <li class="">
-                <a href="./report/generate/">
+                <a href="./report/generate/" target="_blank">
                     <span class="pcoded-micon"><i class="ti-files"></i></span>
                     <span class="pcoded-mtext">Download Statement</span>
                 </a>
