@@ -82,10 +82,10 @@ $timeStamp = date("Y-m-d H:i:s");
 
 // ---------------------------------------------------------
 
-$tbl = <<<EOD
+$tbl = "
 <table>
 <tr>
-<td style='width:20%;'>Account No</td>
+<td style=\"width:20%;\">Account No</td>
 <td>: {$accountNumber}</td>
 </tr>
 <tr>
@@ -100,16 +100,15 @@ $tbl = <<<EOD
 <td>Generated Date</td>
 <td>: {$timeStamp}</td>
 </tr>
-</table>
-EOD;
+</table>";
 
 $pdf->writeHTML($tbl, false, false, false, false, '');
 
-$tbl1 = <<<EOD
+$tbl1 = "
 <br><br>
 <table>
 	<thead>
-		<tr bgcolor='#f5ff9e'>
+		<tr bgcolor=\"#f5ff9e\">
 		<th><b>Transaction Type</b></th>
 		<th><b>Date</b></th>
 		<th><b>Account</b></th>
@@ -119,9 +118,8 @@ $tbl1 = <<<EOD
 	</thead>
 	<tbody>
 	<tr>
-	<td colspan='5'></td>
-	</tr>
-EOD;
+	<td colspan=\"5\"></td>
+	</tr>";
 
 require_once '../../../db_class/dbConn.php';
 $accountNumber = $_SESSION["accountNumber"];
@@ -133,31 +131,29 @@ if ($result->num_rows > 0) {
 		$description = strip_tags($row['tDescription']);
 
 		if($count%2 == 0){
-			$tbl2_temp = <<<EOD
-			<tr bgcolor="#d4dcff">
-			<td><font size='10'>{$row['tType']}</font></td>
-			<td><font size='10'>{$row['tDate']}</font></td>
-			<td><font size='10'>{$row['tAccountType']}</font></td>
-			<td><font size='10'>{$row['tAmount']}</font></td>
-			<td><font size='10'>{$row['tBalance']}</font></td>
+			$tbl2_temp = "
+			<tr bgcolor=\"#d4dcff\">
+			<td><font size=\"10\">{$row['tType']}</font></td>
+			<td><font size=\"10\">{$row['tDate']}</font></td>
+			<td><font size=\"10\">{$row['tAccountType']}</font></td>
+			<td><font size=\"10\">{$row['tAmount']}</font></td>
+			<td><font size=\"10\">{$row['tBalance']}</font></td>
 			</tr>
-			<tr bgcolor="#d4dcff">
-			<td colspan="5"><font size="8">{$description}</font></td>
-			</tr>
-			EOD;
+			<tr bgcolor=\"#d4dcff\">
+			<td colspan=\"5\"><font size=\"8\">{$description}</font></td>
+			</tr>";
 		}else{
-			$tbl2_temp = <<<EOD
+			$tbl2_temp = "
 			<tr>
-			<td><font size='10'>{$row['tType']}</font></td>
-			<td><font size='10'>{$row['tDate']}</font></td>
-			<td><font size='10'>{$row['tAccountType']}</font></td>
-			<td><font size='10'>{$row['tAmount']}</font></td>
-			<td><font size='10'>{$row['tBalance']}</font></td>
+			<td><font size=\"10\">{$row['tType']}</font></td>
+			<td><font size=\"10\">{$row['tDate']}</font></td>
+			<td><font size=\"10\">{$row['tAccountType']}</font></td>
+			<td><font size=\"10\">{$row['tAmount']}</font></td>
+			<td><font size=\"10\">{$row['tBalance']}</font></td>
 			</tr>
 			<tr>
-			<td colspan="5"><font size="8">{$description}</font></td>
-			</tr>
-			EOD;
+			<td colspan=\"5\"><font size=\"8\">{$description}</font></td>
+			</tr>";
 		}
 		
 		$count++;
@@ -165,10 +161,9 @@ if ($result->num_rows > 0) {
 	}
 }
 
-$tbl3 = <<<EOD
+$tbl3 = "
 	</tbody>
-</table>
-EOD;
+</table>";
 
 $tbl = $tbl1.$tbl2.$tbl3;
 
