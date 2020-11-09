@@ -82,7 +82,7 @@ $timeStamp = date("Y-m-d H:i:s");
 
 // ---------------------------------------------------------
 
-$tbl = <<<EOD
+$tbl = "
 <table>
 <tr>
 <td style='width:20%;'>Account No</td>
@@ -101,11 +101,11 @@ $tbl = <<<EOD
 <td>: {$timeStamp}</td>
 </tr>
 </table>
-EOD;
+";
 
 $pdf->writeHTML($tbl, false, false, false, false, '');
 
-$tbl1 = <<<EOD
+$tbl1 = "
 <br><br>
 <table>
 	<thead>
@@ -121,7 +121,7 @@ $tbl1 = <<<EOD
 	<tr>
 	<td colspan='5'></td>
 	</tr>
-EOD;
+";
 
 require_once '../../../db_class/dbConn.php';
 $accountNumber = $_SESSION["accountNumber"];
@@ -133,7 +133,7 @@ if ($result->num_rows > 0) {
 		$description = strip_tags($row['tDescription']);
 
 		if($count%2 == 0){
-			$tbl2_temp = <<<EOD
+			$tbl2_temp = "
 			<tr bgcolor='#d4dcff'>
 			<td><font size='10'>{$row['tType']}</font></td>
 			<td><font size='10'>{$row['tDate']}</font></td>
@@ -157,7 +157,7 @@ if ($result->num_rows > 0) {
 			<tr>
 			<td colspan='5'><font size='8'>{$description}</font></td>
 			</tr>
-			EOD;
+			";
 		}
 		
 		$count++;
@@ -165,10 +165,10 @@ if ($result->num_rows > 0) {
 	}
 }
 
-$tbl3 = <<<EOD
+$tbl3 = "
 	</tbody>
 </table>
-EOD;
+";
 
 $tbl = $tbl1.$tbl2.$tbl3;
 
