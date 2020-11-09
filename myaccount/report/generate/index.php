@@ -85,7 +85,7 @@ $timeStamp = date("Y-m-d H:i:s");
 $tbl = <<<EOD
 <table>
 <tr>
-<td style="width:20%;">Account No</td>
+<td style='width:20%;'>Account No</td>
 <td>: {$accountNumber}</td>
 </tr>
 <tr>
@@ -109,7 +109,7 @@ $tbl1 = <<<EOD
 <br><br>
 <table>
 	<thead>
-		<tr bgcolor="#f5ff9e">
+		<tr bgcolor='#f5ff9e'>
 		<th><b>Transaction Type</b></th>
 		<th><b>Date</b></th>
 		<th><b>Account</b></th>
@@ -119,7 +119,7 @@ $tbl1 = <<<EOD
 	</thead>
 	<tbody>
 	<tr>
-	<td colspan="5"></td>
+	<td colspan='5'></td>
 	</tr>
 EOD;
 
@@ -134,28 +134,28 @@ if ($result->num_rows > 0) {
 
 		if($count%2 == 0){
 			$tbl2_temp = <<<EOD
-			<tr bgcolor="#d4dcff">
-			<td><font size="10">{$row['tType']}</font></td>
-			<td><font size="10">{$row['tDate']}</font></td>
-			<td><font size="10">{$row['tAccountType']}</font></td>
-			<td><font size="10">{$row['tAmount']}</font></td>
-			<td><font size="10">{$row['tBalance']}</font></td>
+			<tr bgcolor='#d4dcff'>
+			<td><font size='10'>{$row['tType']}</font></td>
+			<td><font size='10'>{$row['tDate']}</font></td>
+			<td><font size='10'>{$row['tAccountType']}</font></td>
+			<td><font size='10'>{$row['tAmount']}</font></td>
+			<td><font size='10'>{$row['tBalance']}</font></td>
 			</tr>
-			<tr bgcolor="#d4dcff">
+			<tr bgcolor='#d4dcff'>
 			<td colspan="5"><font size="8">{$description}</font></td>
 			</tr>
 			EOD;
 		}else{
 			$tbl2_temp = <<<EOD
 			<tr>
-			<td><font size="10">{$row['tType']}</font></td>
-			<td><font size="10">{$row['tDate']}</font></td>
-			<td><font size="10">{$row['tAccountType']}</font></td>
-			<td><font size="10">{$row['tAmount']}</font></td>
-			<td><font size="10">{$row['tBalance']}</font></td>
+			<td><font size='10'>{$row['tType']}</font></td>
+			<td><font size='10'>{$row['tDate']}</font></td>
+			<td><font size='10'>{$row['tAccountType']}</font></td>
+			<td><font size='10'>{$row['tAmount']}</font></td>
+			<td><font size='10'>{$row['tBalance']}</font></td>
 			</tr>
 			<tr>
-			<td colspan="5"><font size="8">{$description}</font></td>
+			<td colspan='5'><font size='8'>{$description}</font></td>
 			</tr>
 			EOD;
 		}
