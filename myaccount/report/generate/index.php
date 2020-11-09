@@ -82,7 +82,7 @@ $timeStamp = date("Y-m-d H:i:s");
 
 // ---------------------------------------------------------
 
-$tbl = "
+$tbl = <<<EOD
 <table>
 <tr>
 <td style='width:20%;'>Account No</td>
@@ -101,11 +101,11 @@ $tbl = "
 <td>: {$timeStamp}</td>
 </tr>
 </table>
-";
+EOD;
 
 $pdf->writeHTML($tbl, false, false, false, false, '');
 
-$tbl1 = "
+$tbl1 = <<<EOD
 <br><br>
 <table>
 	<thead>
@@ -121,7 +121,7 @@ $tbl1 = "
 	<tr>
 	<td colspan='5'></td>
 	</tr>
-";
+EOD;
 
 require_once '../../../db_class/dbConn.php';
 $accountNumber = $_SESSION["accountNumber"];
@@ -133,20 +133,20 @@ if ($result->num_rows > 0) {
 		$description = strip_tags($row['tDescription']);
 
 		if($count%2 == 0){
-			$tbl2_temp = "
-			<tr bgcolor='#d4dcff'>
+			$tbl2_temp = <<<EOD
+			<tr bgcolor="#d4dcff">
 			<td><font size='10'>{$row['tType']}</font></td>
 			<td><font size='10'>{$row['tDate']}</font></td>
 			<td><font size='10'>{$row['tAccountType']}</font></td>
 			<td><font size='10'>{$row['tAmount']}</font></td>
 			<td><font size='10'>{$row['tBalance']}</font></td>
 			</tr>
-			<tr bgcolor='#d4dcff'>
-			<td colspan='5'><font size='8'>{$description}</font></td>
+			<tr bgcolor="#d4dcff">
+			<td colspan="5"><font size="8">{$description}</font></td>
 			</tr>
-			";
+			EOD;
 		}else{
-			$tbl2_temp = "
+			$tbl2_temp = <<<EOD
 			<tr>
 			<td><font size='10'>{$row['tType']}</font></td>
 			<td><font size='10'>{$row['tDate']}</font></td>
@@ -155,9 +155,9 @@ if ($result->num_rows > 0) {
 			<td><font size='10'>{$row['tBalance']}</font></td>
 			</tr>
 			<tr>
-			<td colspan='5'><font size='8'>{$description}</font></td>
+			<td colspan="5"><font size="8">{$description}</font></td>
 			</tr>
-			";
+			EOD;
 		}
 		
 		$count++;
@@ -165,10 +165,10 @@ if ($result->num_rows > 0) {
 	}
 }
 
-$tbl3 = "
+$tbl3 = <<<EOD
 	</tbody>
 </table>
-";
+EOD;
 
 $tbl = $tbl1.$tbl2.$tbl3;
 
