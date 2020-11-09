@@ -142,7 +142,7 @@ try{
 							$_SESSION['fromAccUpdateSuccess'] = "fromAccUpdateSuccess";
 		//From account Transaction log insert
 							$timeStamp = date("Y-m-d H:i:s");
-							$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Send', '$timeStamp', '$descriptionFrom', 'PRA', '$amount', '$newAccBalto', '$accountNumber')";
+							$insert = "INSERT INTO tbltransactions (tType, tDate, tDescription, tAccountType, tAmount, tBalance, tAccountNumber) VALUES ('Send', '$timeStamp', '$descriptionFrom', 'PRA', '$amount', '$newAccBalfrom', '$accountNumber')";
 							if(mysqli_query($conn,$insert)){
 								$_SESSION['fromAccTranSuccess'] = "fromAccTranSuccess";
 								$_SESSION['forceTransactionCount'] = "";
