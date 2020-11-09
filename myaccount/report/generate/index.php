@@ -142,7 +142,7 @@ if ($result->num_rows > 0) {
 			<td><font size='10'>{$row['tBalance']}</font></td>
 			</tr>
 			<tr bgcolor='#d4dcff'>
-			<td colspan="5"><font size="8">{$description}</font></td>
+			<td colspan='5'><font size='8'>{$description}</font></td>
 			</tr>
 			";
 		}else{
