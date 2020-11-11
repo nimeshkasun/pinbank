@@ -29,7 +29,7 @@ function convertCurrency($amount,$from_currency,$to_currency){
 //============================================================ 02 =====================================================================
 //https://openexchangerates.org/account/app-ids
 //https://openexchangerates.org/api/currencies.json
-/*$to_Currency = urlencode($to_currency);
+$to_Currency = urlencode($to_currency);
 
 $app_id = '93c06353536e45f8a17fe679d9eb3881';
 $oxr_url = "https://openexchangerates.org/api/latest.json?app_id=".$app_id."&symbols=".$to_Currency."";
@@ -51,7 +51,7 @@ if($rate!=NULL){
 }else{
   return "API Error";
 }
-*/
+
 
 return "API Commented";
 
