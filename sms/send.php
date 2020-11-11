@@ -8,9 +8,9 @@
         $mysms->setUser('5iAhRRFK5fRARQ6xDOofTkGCDtLxWU0W','B3xD1604488868');// Initializing User Api Key and Api Token
         $mysms->setSenderID('DEMO_SMS');// Initializing Sender ID Default Web SMS
         $mysms->msgType='sms';// Initializing Message Type
-		$mysms->SendMessage($phonesaved,$smsMessage);
+		//$mysms->SendMessage($phonesaved,$smsMessage);
 
 		if(isset($smsMessage2)){
-			$mysms->SendMessage($phonesavedTo,$smsMessage2);
+			//$mysms->SendMessage($phonesavedTo,$smsMessage2);
 		}
 ?>

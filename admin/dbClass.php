@@ -745,6 +745,13 @@ if($_SESSION['toAccUpdateSuccess']=="toAccUpdateSuccess" AND $_SESSION['toAccTra
 																							}else if(isset($_GET['searchAccount'])){
 																								$_SESSION['accountNumberCust'] = mysqli_real_escape_string($conn, $_GET['searchAccount']);
 																								$accountNumberCust = $_SESSION['accountNumberCust'];
+																								$result = $conn->query("SELECT aUserEmail FROM tblaccount WHERE accountNumber='$accountNumberCust'");
+																								if ($result->num_rows > 0) {
+																									while($row = $result->fetch_assoc()) {
+																										$aUserEmail = $row['aUserEmail'];
+																									}
+																								}else{
+																								}
 																								$result = $conn->query("SELECT userType, phoneNumber FROM tbluserdetails WHERE email='$aUserEmail'");
 																								if ($result->num_rows > 0) {
 																									while($row = $result->fetch_assoc()) {
