@@ -360,7 +360,7 @@ if ($result->num_rows > 0) {
 
 			$_SESSION["codevalidation"] = $valcode;
 			$_SESSION["email"] = $email;
-			//header('location: ../resetcode.php');
+			header('location: ../resetcode.php');
 		}else{
 			header('location: ../resetpassnow.php');
 		}
