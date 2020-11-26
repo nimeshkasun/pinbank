@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 11, 2020 at 12:52 PM
--- Server version: 5.7.31-cll-lve
+-- Generation Time: Nov 26, 2020 at 05:21 PM
+-- Server version: 5.7.32-cll-lve
 -- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -41,8 +41,8 @@ CREATE TABLE `tblaccount` (
 --
 
 INSERT INTO `tblaccount` (`aId`, `accountNumber`, `accountBalance`, `aCurrency`, `aUserEmail`) VALUES
-(1, 199600000000, 316542, 'LKR', 'nimesh.ekanayaka7@gmail.com'),
-(6, 199600000001, 44834.4, 'LKR', 'lahiruthivankara@gmail.com'),
+(1, 199600000000, 316522, 'LKR', 'nimesh.ekanayaka7@gmail.com'),
+(6, 199600000001, 44844.4, 'LKR', 'lahiruthivankara@gmail.com'),
 (32, 199600000002, 0, 'LKR', 'nimesh@edvicon.org'),
 (33, 199600000003, 0, 'LKR', 'bhanuka@gmail.com'),
 (53, 199600000004, 95300, 'LKR', 'user1@pinbank.live'),
@@ -721,8 +721,8 @@ INSERT INTO `tblvirtualcard` (`vId`, `vCardNumber`, `vExpireDate`, `vCSV`, `vCar
 (105, 1996166018471138, '2025-10-07', 459, 'eBay Payments', 2000, 'VC1', 199600000005),
 (99, 1996285133961924, '2025-05-15', 300, 'Neteller', 510, 'VC1', 199600000001),
 (106, 1996444565082747, '2025-10-17', 804, 'RM Visa', 1000, 'VC2', 199600000005),
-(79, 1996481243502433, '2025-04-18', 715, 'PayPal - Don\'t Del', 1993, 'VC3', 199600000000),
-(49, 1996501047080921, '2024-12-15', 959, 'Neteller - Don\'t Del', 550.5, 'VC3', 199600000000),
+(79, 1996481243502433, '2025-04-18', 715, 'PayPal - Don\'t Del', 1983, 'VC3', 199600000000),
+(49, 1996501047080921, '2024-12-15', 959, 'Neteller - Don\'t Del', 570.5, 'VC3', 199600000000),
 (104, 1996615633264053, '2025-10-07', 264, 'Netflix Payments', 2100, 'VC2', 199600000004),
 (100, 1996649711701750, '2025-10-07', 568, 'Test Card', 0, 'VC2', 199600000001),
 (103, 1996780990777286, '2025-10-07', 542, 'eBay Payments', 4600, 'VC1', 199600000004);
@@ -784,7 +784,7 @@ ALTER TABLE `tblvirtualcard`
 -- AUTO_INCREMENT for table `tblaccount`
 --
 ALTER TABLE `tblaccount`
-  MODIFY `aId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `aId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `tbliptracking`
@@ -796,25 +796,25 @@ ALTER TABLE `tbliptracking`
 -- AUTO_INCREMENT for table `tblmessage`
 --
 ALTER TABLE `tblmessage`
-  MODIFY `mId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `mId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 
 --
 -- AUTO_INCREMENT for table `tbltransactions`
 --
 ALTER TABLE `tbltransactions`
-  MODIFY `tId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=753;
+  MODIFY `tId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=757;
 
 --
 -- AUTO_INCREMENT for table `tbluserdetails`
 --
 ALTER TABLE `tbluserdetails`
-  MODIFY `uId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `uId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
 -- AUTO_INCREMENT for table `tblvirtualcard`
 --
 ALTER TABLE `tblvirtualcard`
-  MODIFY `vId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `vId` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- Constraints for dumped tables
